@@ -17,72 +17,52 @@ a {
 }
 
 
-/* HEADER */
+/* #region HEADER h */
 
-.desktopHeader {
-    display: none;
-}
-
-.ctn1 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2vw 0 4vw 0;
-    gap:0.2vh;
-    border-bottom: rgb(166, 124, 20) solid 2px;
-    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgb(240, 230, 210) 100%);
-    
-}
-
-.imageCtn {
-    position: relative;
-    display: flex;
-    width: 100%;
-    padding-top: 2vw;
-}
-
-.divider2 {
-    width: clamp(150px, 30vw, 250px);
-    max-height: 7vh;
-    margin: 0 auto;
-    object-fit: contain;
-}
-
-
-
-/* MOBILE HEADER */
-
-.mobileHeader {
+header {
     position: sticky;
     top: 0;
 }
 
-.hstyle2 {
-    color: black;
-    font-family: 'Beau Rivage';
-    font-size: clamp(5rem,12vw,10rem);
+.ctn-h1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(5px,2vw,1.2vh);
+    padding-bottom: clamp(12px,4vw,2vh);
+    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgb(240, 230, 210) 100%);
+    border-bottom: rgb(166, 124, 20) solid clamp(1px,1vw,1vh);
 }
 
-.hstyle3 {
-    color: black;
+.style-h1 {    
+    font-family: 'Beau Rivage';
+    font-size: clamp(4rem,12vw,8vh);
+}
+
+.style-h2 {
     font-family: 'Beau Rivage';
     margin-top: -0.5vh;
-    font-size: clamp(2rem,5.3vw, 4rem);
+    font-size: clamp(1.5rem,5.3vw, 5vh);
     letter-spacing: 1.4px;
 }
 
-.divider4 {
-    width: clamp(120px, 32vw, 250px);
+.ctn-h2 {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding-top: clamp(7px,2vw,1vh);
+}
+
+.divider-h1 {
+    width: clamp(120px, 32vw, 30vh);
     max-height: 7vh;
     margin: 0 auto;
     object-fit: contain;
 }
 
-
-
 .img1 {
-    height: 30vh;
+    height: 26vh;
     z-index: 1;
     background: url("pictures/header_picture2.jpeg") no-repeat center center;
     background-size: cover;
@@ -90,15 +70,12 @@ a {
 }
 
 .headerImage {
-    border-bottom: rgb(166, 124, 20) solid 2px;
+    border-bottom: rgb(166, 124, 20) solid clamp(1px,1vw,1vh);
 }
 
+/* #endregion HEADER h */
 
-
-
-
-
-/* NAV */
+/* #region NAV */
 
 nav {
     display: none;
@@ -120,7 +97,9 @@ nav {
     color: black;
 }
 
-/* Sections */
+/* #endregion NAV */
+
+/* #region SECTIONS */
 
 .section {
     display: flex;
@@ -133,21 +112,53 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+}
+
+.se1 {
+    background-color:rgb(255, 253, 243) ;
+
+
+}
+
+.se2 {
+    background-color: rgb(236, 248, 234);
 }
 
 .sectionHeader {
     display: flex;
     align-items: center;
-    height: clamp(60px,7vh,80px);
+    /*height: clamp(60px,7vh,80px);*/
+    height: clamp(60px,13vw,10vh);
+    width: 100%;
+    padding: 10px 0 0 0;
+
+}
+
+.subsectionHeader {
+    display: flex;
+    align-items: center;
+    /*height: clamp(40px,7vh,60px);*/
+    justify-content: center;
     width: 100%;
 }
 
-.sectionHeaderStyle1 {
+.subsectionLeft, .subsectionRight {
+    width: 30px;
+    margin: 0 8px;
+}
+
+.separator4 {
+    width: 120px;
+    margin: 0 auto;
+}
+
+.se1-header {
     background: linear-gradient(180deg,rgb(240, 230, 210), rgb(255, 253, 243));
     border-top: grey 1px solid;
 }
 
-.sectionHeaderStyle2 {
+.se2-header {
     background: linear-gradient(180deg,rgb(199, 219, 197), rgb(236, 248, 234));
     border-top: rgb(255, 0, 0);
 }
@@ -158,30 +169,16 @@ nav {
 }
 
 .style2 {
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Beau Rivage';
     gap: clamp(7px,1vw, 30px);
-    font-size: clamp(2.5rem, 6.9vw, 3rem);
+    font-size: clamp(3.5rem, 6.9vw, 3vh);
 }
 
-.collapseBtn1 {
-    position: absolute;
-    right: 8%;
-    font-size: 30px;
-    color: rgb(236, 232, 215);
-}
-
-.collapseBtn2 {
-    position: absolute;
-    right: 8%;
-    font-size: 30px;
-    color: rgb(193, 207, 190);
-    cursor: pointer;
-}
 
 .style3 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 22px;
-    padding: 12px 0 4px 0;
+    padding: 8px 0;
 
 }
 
@@ -218,9 +215,9 @@ nav {
     padding: 2px 0 4px 0;
 }
 
-.style9 {
 
-}
+
+/* #endregion SECTIONS */
 
 /* Tablet+ */
 @media (min-width: 768px) {
@@ -253,22 +250,15 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
     margin: 0 auto;
     border-radius: 4px;
 }
 
 
 
-.sectionStyle1 {
-    background-color:rgb(255, 253, 243) ;
 
-}
-
-.sectionStyle2 {
-    background-color: rgb(236, 248, 234);
-}
 
 .sectionBody {
     display: flex;
@@ -290,7 +280,6 @@ nav {
 .sectionHeaderCtn {
     display: flex;
     flex-direction: column;
-
 }
 
 
