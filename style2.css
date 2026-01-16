@@ -22,6 +22,9 @@ a {
 header {
     position: sticky;
     top: 0;
+    background-color:  rgb(240, 230, 210);
+    transition: background-color 0.5s ease;
+
 }
 
 .ctn-h1 {
@@ -31,8 +34,9 @@ header {
     align-items: center;
     padding-top: clamp(5px,2vw,1.2vh);
     padding-bottom: clamp(12px,4vw,2vh);
-    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgb(240, 230, 210) 100%);
+    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255,0) 100%);
     border-bottom: rgb(166, 124, 20) solid clamp(1px,1vw,1vh);
+
 }
 
 .style-h1 {    
@@ -123,6 +127,16 @@ nav {
     background-color: rgb(236, 248, 234);
 }
 
+.se3 {
+    background-color: rgb(216, 236, 232);
+}
+.se4 {
+    background-color: rgb(240, 234, 223);
+}
+.se5 {
+    background-color: rgb(254, 231, 255);
+}
+
 .sectionHeader {
     display: flex;
     align-items: center;
@@ -142,12 +156,22 @@ nav {
 
 .se1-header {
     background: linear-gradient(180deg,rgb(240, 230, 210), rgb(255, 253, 243));
-    border-top: grey 1px solid;
 }
 
 .se2-header {
     background: linear-gradient(180deg,rgb(199, 219, 197), rgb(236, 248, 234));
-    border-top: rgb(255, 0, 0);
+}
+
+.se3-header {
+    background: linear-gradient(180deg,rgb(184, 232, 222),rgb(216, 236, 232));
+}
+
+.se4-header {
+    background: linear-gradient(180deg,rgb(203, 186, 158),rgb(240, 234, 223));
+}
+
+.se5-header {
+    background: linear-gradient(180deg,rgb(253, 206, 255),rgb(254, 231, 255));
 }
 
 .se-h-ctn {

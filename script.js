@@ -49,38 +49,69 @@
 
 
 
-// Navbar change of color //
+// Header change of color //
 
-// select navbar
-const navbar = document.querySelector("nav");
+// select header
+const header = document.querySelector("header");
 
 // select all sections
 const sections = document.querySelectorAll(".navColorChange");
 
 // map section to a color
 const sectionColors = {
-  mainPic: "#F1EEEA",
-  generalInfo: "#d5ccbfff",
-  access: "#82967eff",
-  accommodation: "#FFFDF3",
+  mainPic: "rgb(240, 230, 210)",
+  travel: "rgb(199, 219, 197)",
+  accommodation: "rgb(184, 232, 222)",
+  visit: "rgb(203, 186, 158)",
+  section: "rgb(254, 231, 255)"
 };
 
+
+
 // listen to scroll
+
+let currentSection = sections[0]
+
 window.addEventListener("scroll", () => {
-  let currentSection = "";
+
+  const headerY = window.scrollY + header.offsetHeight;
+  let newSection = sections[0]
+
+  for (const section of sections) {
+    if (section.offsetTop <= headerY) {
+      newSection = section;
+    } else {
+      break;
+    }
+  }
+
+  if (newSection !== currentSection) {
+    console.log("New section:", newSection.id);
+    currentSection = newSection;
+    header.style.backgroundColor = sectionColors[currentSection.id];
+  }
+
+});
+
+/*
+  let currentSection2 = "";
+  console.log("Scrolling");
+  console.log(header.style.backgroundColor);
 
   sections.forEach(section => {
     
-    const sectionTop = section.offsetTop - navbar.offsetHeight;
+    const sectionTop = section.offsetTop - header.offsetHeight;
     const sectionHeight = section.offsetHeight;
     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
       currentSection = section.id;
+      console.log("Current section:", currentSection);
     }
   });
 
+  /*
   // set navbar background color based on section
   if (currentSection) {
-    navbar.style.backgroundColor = sectionColors[currentSection];
+    header.style.background = sectionColors[currentSection];
   }
 });
 
@@ -94,4 +125,4 @@ window.addEventListener("scroll", () => {
       body.classList.toggle('collapsed');
       btn.textContent = body.classList.contains('collapsed') ? '⯆' : '⯅';
     });
-  });
+  });*/
