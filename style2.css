@@ -203,6 +203,13 @@ nav {
     margin: 0 auto;
 }
 
+.style-se-h4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
 .style-se-p1 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 14px;
@@ -212,8 +219,8 @@ nav {
 
 .style-se-p2 {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 12px;
-    padding: 2px 0;
+    font-size: 14px;
+    padding: 4px 0 2px 0;
     margin: 0 auto;
     color: rgb(85, 85, 85);
     font-style: italic;
@@ -248,6 +255,20 @@ nav {
     font-style: italic;
 }
 
+.style-se-p3 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    padding-top: 2px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.style-se-p4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
+    padding-bottom: 2px;
+    margin: 0 auto;
+}
 
 .style5 {
     font-family: "Nunito Sans", sans-serif;
@@ -263,9 +284,6 @@ nav {
     padding: 2px 0;
 }
 
-.style7 {
-
-}
 
 .style8 {
     font-family: "Nunito Sans", sans-serif;
