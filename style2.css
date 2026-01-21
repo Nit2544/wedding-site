@@ -24,7 +24,10 @@ header {
     top: 0;
     background-color:  rgb(240, 230, 210);
     transition: background-color 0.5s ease;
+}
 
+#headerBottom {
+    width: 100%;
 }
 
 .ctn-h1 {
@@ -32,7 +35,7 @@ header {
     display: flex;
     flex-direction: column;
     
-    border-bottom: rgb(166, 124, 20) solid clamp(1px,1vw,1vh);
+    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
     padding-bottom: clamp(12px,4vw,2vh);
 
 }
@@ -50,14 +53,16 @@ header {
 .style-h1 {    
     font-family: 'Beau Rivage';
     font-size: clamp(4rem,12vw,8vh);
-    transition: font-size 0.5s ease;
+  transition: font-size 0.5s ease;
+}
+
+.style-h1.shrink {    
+  font-size: clamp(2.5rem, 6vw, 5vh);
 
 }
 
-.style-h1-shrinked {    
-    font-family: 'Beau Rivage';
-    font-size: clamp(3rem,8vw,6vh);
-    transition: font-size 0.5s ease;
+.no-transition {
+  transition: none !important;
 }
 
 .style-h2 {
@@ -66,7 +71,6 @@ header {
     font-size: clamp(1.5rem,5.3vw, 5vh);
     letter-spacing: 1.4px;
     transition: font-size 0.5s ease;
-
 }
 
 .style-h2-shrinked {
@@ -75,7 +79,6 @@ header {
     font-size: clamp(1.2rem,4vw,4vh);
     letter-spacing: 1.4px;
     transition: font-size 0.5s ease;
-
 }
 
 .ctn-h2 {
@@ -125,7 +128,7 @@ header {
 }
 
 .headerImage {
-    border-bottom: rgb(166, 124, 20) solid clamp(1px,1vw,1vh);
+    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
 }
 
 /* #endregion HEADER h */
@@ -134,23 +137,29 @@ header {
 
 nav {
   margin-top: 10px;
-  height: 0;
-  overflow: hidden;
-  transition: height 0.5s ease;
 }
 
-.navCtn {
+.navCtn1 {
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+    width: 100%;
+    background-color: rgb(240, 230, 210);
+
+}
+
+.navCtn2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    padding: 4px 0;
-
+    padding: 4px 0 12px 0;
     font-family: "Nunito Sans", sans-serif;
-
     gap: clamp(7px,1vw, 30px);
     font-size: clamp(2rem, 3vw, 3rem);
+    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
 }
+
 .navOption {
     color: black;
     text-align: center;
@@ -159,7 +168,6 @@ nav {
 .navSeparator {
     margin: 0 auto;
     width: 100px;
-    padding-top: 8px;
 }
 
 /* #endregion NAV */

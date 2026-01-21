@@ -33,6 +33,7 @@ let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
 const h2 = document.querySelector(".style-h2");
 const hPic = document.querySelector(".divider-h1");
+const headerBottom = document.getElementById("headerBottom");
 
 let menuOpen = false;
 let ignoreScroll = false; // flag to ignore scroll while toggling
@@ -93,34 +94,18 @@ window.addEventListener("scroll", () => {
   }
     
 
-  /* Change header color based on section */
+  checkSectionChange();
   
-  const headerY = window.scrollY + header.offsetHeight;
-  let newSection = sections[0]
 
-  for (const section of sections) {
-    if (section.offsetTop <= headerY) {
-      newSection = section;
-    } else {
-      break;
-    }
-  }
-
-  if (newSection !== currentSection) {
-    console.log("New section:", newSection.id);
-    currentSection = newSection;
-    header.style.backgroundColor = sectionColors[currentSection.id];
-  }
     
 });
 
 
 /* Toggle Menu */
 const btn = document.getElementById("menuBtn");
-const nav = document.querySelector("nav");
+const nav = document.getElementById("nav");
 
 btn.addEventListener("click", () => {
-  console.log(header.offsetHeight);
   toggleMenu();
 
 });
@@ -140,19 +125,13 @@ links.forEach(link => {
     );
 
 
-    const headerHeight = header.offsetHeight;
-    console.log("Header height:", headerHeight);
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-
-    console.log("Scrolling to:", targetPosition - headerHeight + nav.offsetHeight);
     window.scrollTo({
-      top: targetPosition - headerHeight+nav.offsetHeight,
+      top: targetPosition - headerBottom.offsetTop,
       behavior: "smooth"
     });
 
-    scrollToTarget(targetPosition-headerHeight+nav.offsetHeight);
-
-    //toggleMenu();   // close menu
+    toggleMenu();   // close menu
 
 
 
@@ -165,10 +144,12 @@ function toggleMenu() {
     console.log("Closing menu");
     nav.style.height = "0px";
     menuOpen = false;
+    checkSectionChange();
   } else {
     console.log("Opening menu");
     nav.style.height = nav.scrollHeight + "px";
     menuOpen = true;
+    checkSectionChange();
   }
   console.log(header.offsetHeight);
 
@@ -200,6 +181,26 @@ function expandHeader() {
     h2.classList.remove("style-h2-shrinked");
     hPic.classList.remove("divider-h1-shrinked");
     headerShrunk = false;
+  }
+}
+
+function checkSectionChange() {
+  const headerY = window.scrollY + header.offsetHeight;
+  let newSection = sections[0]
+
+  for (const section of sections) {
+    if (section.offsetTop <= headerY) {
+      newSection = section;
+    } else {
+      break;
+    }
+  }
+
+  if (newSection !== currentSection) {
+    console.log("New section:", newSection.id);
+    currentSection = newSection;
+    header.style.backgroundColor = sectionColors[currentSection.id];
+    nav.style.backgroundColor = sectionColors[currentSection.id]; 
   }
 }
 
