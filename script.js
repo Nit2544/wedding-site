@@ -60,6 +60,7 @@ let ignoreScroll = false; // flag to ignore scroll while toggling
 // Header change of color //
 
 const header = document.querySelector("header");
+const menu = document.querySelector("nav");
 const sections = document.querySelectorAll(".navColorChange");
 
 const sectionColors = {
@@ -143,11 +144,13 @@ links.forEach(link => {
     console.log("Header height:", headerHeight);
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
 
-    console.log("Scrolling to:", targetPosition - headerHeight);
+    console.log("Scrolling to:", targetPosition - headerHeight + nav.offsetHeight);
     window.scrollTo({
-      top: targetPosition - headerHeight,
-      behavior: "smooth",
+      top: targetPosition - headerHeight+nav.offsetHeight,
+      behavior: "smooth"
     });
+
+    scrollToTarget(targetPosition-headerHeight+nav.offsetHeight);
 
     //toggleMenu();   // close menu
 
@@ -236,4 +239,13 @@ function expandHeader() {
     });
   });*/
 
-  
+  function scrollToTarget(targetPosition) {
+    function checkScroll() {
+      if (Math.abs(window.scrollY - targetPosition) < 2) {
+        toggleMenu(); // close menu
+      } else {
+        requestAnimationFrame(checkScroll);
+      }
+    }
+    requestAnimationFrame(checkScroll);
+  }
