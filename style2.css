@@ -23,46 +23,34 @@ header {
     position: sticky;
     top: 0;
     background-color:  rgb(240, 230, 210);
-    transition: background-color 0.5s ease;
-}
-
-#headerBottom {
-    width: 100%;
+    transition: 
+        background-color 0.5s ease,
+        width 0.5s ease,
+        max-height 0.5s ease,
+        font-size 0.5s ease;
 }
 
 .ctn-h1 {
     position: relative;
     display: flex;
     flex-direction: column;
-    
     border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
-    padding-bottom: clamp(12px,4vw,2vh);
-
+    /*padding-bottom: clamp(12px,4vw,2vh);*/
 }
 
 .ctn-h1-inner {
-    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255,0) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    padding: clamp(5px,2vw,1.2vh) 0;
     width: 100%;
-    padding-top: clamp(5px,2vw,1.2vh);
+    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255,0) 100%);
 }
 
 .style-h1 {    
     font-family: 'Beau Rivage';
     font-size: clamp(4rem,12vw,8vh);
-  transition: font-size 0.5s ease;
-}
-
-.style-h1.shrink {    
-  font-size: clamp(2.5rem, 6vw, 5vh);
-
-}
-
-.no-transition {
-  transition: none !important;
+    transition: font-size 0.5s ease;
 }
 
 .style-h2 {
@@ -73,33 +61,12 @@ header {
     transition: font-size 0.5s ease;
 }
 
-.style-h2-shrinked {
-    font-family: 'Beau Rivage';
-    margin-top: -0.5vh;
-    font-size: clamp(1.2rem,4vw,4vh);
-    letter-spacing: 1.4px;
-    transition: font-size 0.5s ease;
-}
-
 .ctn-h2 {
     display: flex;
     align-items: center;
     position: relative;
     width: 100%;
-    padding-top: clamp(7px,2vw,1vh);
-}
-
-.ctn-h2-shrinked {
-    display: flex;
-    width: 100%;
-    padding-top: clamp(4px,1vw,0.5vh);
-}
-
-.menuBtn {
-    position: absolute;
-    right: 8%;
-    top: 4px;
-    font-size: 20px;
+    padding: clamp(8px,2vw,1vh) 0;
 }
 
 .divider-h1 {
@@ -110,14 +77,104 @@ header {
     transition: width 0.5s ease, max-height 0.5s ease;
 }
 
-.divider-h1-shrinked {
+.menuBtn {
+    position: absolute;
+    right: 8%;
+    top: 4px;
+    font-size: 20px;
+    padding: 1px 4px 2px 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.1s ease;
+}
+
+.menuBtn:active, .menuBtn:focus-visible {
+    background-color: rgb(205, 187, 152);
+}
+
+#headerBottom {
+    width: 100%;
+}
+
+
+
+
+
+/* HEADER SHRINK */
+
+header.shrunk .style-h1 {    
+  font-size: clamp(3.2rem, 6vw, 5vh);
+}
+
+header.shrunk .style-h2 {
+    font-family: 'Beau Rivage';
+    margin-top: -0.5vh;
+    font-size: clamp(1.1rem,4vw,4vh);
+    letter-spacing: 1.4px;
+}
+
+header.shrunk .ctn-h1 {
+    padding-bottom: clamp(8px,2vw,1.5vh);
+}
+
+header.shrunk .ctn-h2 {
+    display: flex;
+    width: 100%;
+    padding-top: clamp(4px,1vw,0.5vh);
+}
+
+header.shrunk .divider-h1 {
     width: clamp(80px, 20vw, 20vh);
     max-height: 5vh;
     margin: 0 auto;
     object-fit: contain;
-    transition: width 0.5s ease, max-height 0.5s ease;
-
 }
+
+/* #endregion HEADER h */
+
+/* #region NAV */
+
+nav {
+  margin-top: 0;
+  position: relative;
+}
+
+.navCtn1 {
+    position: absolute;
+    overflow: hidden;
+    top:-1px;
+    height: 0;
+    transition: 
+        height 0.5s ease;
+    width: 100%;
+    background-color: rgb(240, 230, 210);
+}
+
+.navCtn2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 16px;
+    font-family: "Nunito Sans", sans-serif;
+    gap: clamp(6px,1vw, 30px);
+    font-size: clamp(2rem, 3vw, 3rem);
+    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
+}
+
+.navOption {
+    color: black;
+    text-align: center;
+}
+
+.navSeparator {
+    margin: 0 auto;
+    width: 100px;
+    padding-top: 6px;
+}
+
+/* #endregion NAV */
+
 
 .img1 {
     height: 26vh;
@@ -131,46 +188,6 @@ header {
     border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
 }
 
-/* #endregion HEADER h */
-
-/* #region NAV */
-
-nav {
-  margin-top: 10px;
-}
-
-.navCtn1 {
-    position: absolute;
-    overflow: hidden;
-    height: 0;
-    transition: height 0.5s ease;
-    width: 100%;
-    background-color: rgb(240, 230, 210);
-
-}
-
-.navCtn2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4px 0 12px 0;
-    font-family: "Nunito Sans", sans-serif;
-    gap: clamp(7px,1vw, 30px);
-    font-size: clamp(2rem, 3vw, 3rem);
-    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
-}
-
-.navOption {
-    color: black;
-    text-align: center;
-}
-
-.navSeparator {
-    margin: 0 auto;
-    width: 100px;
-}
-
-/* #endregion NAV */
 
 /* #region SECTIONS */
 

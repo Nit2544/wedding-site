@@ -77,7 +77,6 @@ const sectionColors = {
 // Scroll event listener
 
 let currentSection = sections[0]
-const SCROLL_THRESHOLD = 10;
 
 window.addEventListener("scroll", () => {
 
@@ -93,11 +92,8 @@ window.addEventListener("scroll", () => {
     }
   }
     
-
   checkSectionChange();
   
-
-    
 });
 
 
@@ -127,7 +123,7 @@ links.forEach(link => {
 
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: targetPosition - headerBottom.offsetTop,
+      top: targetPosition - headerBottom.offsetTop + 2,
       behavior: "smooth"
     });
 
@@ -148,6 +144,7 @@ function toggleMenu() {
   } else {
     console.log("Opening menu");
     nav.style.height = nav.scrollHeight + "px";
+
     menuOpen = true;
     checkSectionChange();
   }
@@ -168,18 +165,16 @@ document.addEventListener("pointerdown", (e) => {
 
 function shrinkHeader() {
   if (!headerShrunk) {
-    h1.classList.add("style-h1-shrinked");
-    h2.classList.add("style-h2-shrinked");
-    hPic.classList.add("divider-h1-shrinked");
+    console.log("Shrinking header");
+    header.classList.add('shrunk')
     headerShrunk = true;
   }
 }
 
 function expandHeader() {
   if (headerShrunk) {
-    h1.classList.remove("style-h1-shrinked");
-    h2.classList.remove("style-h2-shrinked");
-    hPic.classList.remove("divider-h1-shrinked");
+    console.log("Expanding header");
+    header.classList.remove('shrunk');
     headerShrunk = false;
   }
 }
@@ -206,47 +201,7 @@ function checkSectionChange() {
 
 
 
-/*
-  let currentSection2 = "";
-  console.log("Scrolling");
-  console.log(header.style.backgroundColor);
-
-  sections.forEach(section => {
-    
-    const sectionTop = section.offsetTop - header.offsetHeight;
-    const sectionHeight = section.offsetHeight;
-    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-      currentSection = section.id;
-      console.log("Current section:", currentSection);
-    }
-  });
-
-  /*
-  // set navbar background color based on section
-  if (currentSection) {
-    header.style.background = sectionColors[currentSection];
-  }
-});
 
 
-// MENU BUTTONS //
 
-  document.querySelectorAll('[data-target]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const body = document.getElementById(btn.dataset.target);
 
-      body.classList.toggle('collapsed');
-      btn.textContent = body.classList.contains('collapsed') ? '⯆' : '⯅';
-    });
-  });*/
-
-  function scrollToTarget(targetPosition) {
-    function checkScroll() {
-      if (Math.abs(window.scrollY - targetPosition) < 2) {
-        toggleMenu(); // close menu
-      } else {
-        requestAnimationFrame(checkScroll);
-      }
-    }
-    requestAnimationFrame(checkScroll);
-  }
