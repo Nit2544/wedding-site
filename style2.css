@@ -27,7 +27,6 @@ header {
         background-color 0.5s ease,
         width 0.5s ease,
         max-height 0.5s ease,
-        font-size 0.5s ease;
 }
 
 .ctn-h1 {
@@ -35,7 +34,7 @@ header {
     display: flex;
     flex-direction: column;
     border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
-    /*padding-bottom: clamp(12px,4vw,2vh);*/
+    z-index: 20;
 }
 
 .ctn-h1-inner {
@@ -44,7 +43,7 @@ header {
     align-items: center;
     padding: clamp(5px,2vw,1.2vh) 0;
     width: 100%;
-    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255,0) 100%);
+    background: linear-gradient(180deg,rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255,0) 100%);
 }
 
 .style-h1 {    
@@ -76,18 +75,28 @@ header {
     object-fit: contain;
     transition: width 0.5s ease, max-height 0.5s ease;
 }
+.menuBtnCtn{
+    position: relative;
+    display: flex;
+    height: 0;
+    border: 1px red;
+}
 
 .menuBtn {
-    position: absolute;
-    right: 8%;
-    top: 4px;
-    font-size: 20px;
-    padding: 1px 4px 2px 4px;
+    position: sticky;
+    font-size: 24px;
+    padding: 2px 5px 3px 5px;
+    height: fit-content;
     border-radius: 4px;
-    background-color: transparent;
-    border: none;
+    background-color: rgba(240, 230, 210, 0.7);
+    border: 0px rgb(166, 124, 20) solid;
     transition: background-color 0.1s ease;
+    margin-left: auto;
+    margin-right: 14px;
+    margin-top: 10px;
 }
+
+
 
 .menuBtn:active, .menuBtn:focus-visible {
     background-color: rgb(205, 187, 152);
@@ -112,10 +121,6 @@ header.shrunk .style-h2 {
     margin-top: -0.5vh;
     font-size: clamp(1.1rem,4vw,4vh);
     letter-spacing: 1.4px;
-}
-
-header.shrunk .ctn-h1 {
-    padding-bottom: clamp(8px,2vw,1.5vh);
 }
 
 header.shrunk .ctn-h2 {

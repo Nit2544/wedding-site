@@ -80,7 +80,7 @@ let currentSection = sections[0]
 
 window.addEventListener("scroll", () => {
 
-  /* Shrink header */
+  /* Shrink header when scrolling */
   
   if (window.scrollY > 0) {
     if (!headerShrunk) {
@@ -92,6 +92,8 @@ window.addEventListener("scroll", () => {
     }
   }
     
+  /* Change header color based on section */
+
   checkSectionChange();
   
 });
@@ -103,9 +105,7 @@ const nav = document.getElementById("nav");
 
 btn.addEventListener("click", () => {
   toggleMenu();
-
 });
-
 
 
 
@@ -139,11 +139,14 @@ function toggleMenu() {
   if (menuOpen) {
     console.log("Closing menu");
     nav.style.height = "0px";
+
     menuOpen = false;
     checkSectionChange();
   } else {
     console.log("Opening menu");
     nav.style.height = nav.scrollHeight + "px";
+
+
 
     menuOpen = true;
     checkSectionChange();
@@ -155,7 +158,7 @@ function toggleMenu() {
 document.addEventListener("pointerdown", (e) => {
   if (
     menuOpen &&
-    !header.contains(e.target) &&
+    !nav.contains(e.target) &&
     e.target !== btn // also exclude the menu button itself
   ) {
     toggleMenu();
@@ -178,6 +181,7 @@ function expandHeader() {
     headerShrunk = false;
   }
 }
+
 
 function checkSectionChange() {
   const headerY = window.scrollY + header.offsetHeight;
