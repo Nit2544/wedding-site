@@ -1,0 +1,490 @@
+html, body {
+  margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* #region HEADER h */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgb(235, 229, 216);
+    transition: 
+        background-color 0.5s ease,
+        width 0.5s ease,
+        max-height 0.5s ease;
+}
+
+.ctn-h1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+}
+
+.borderBottom1 {
+}
+
+.borderBottom2 {
+    border-bottom: #486946 solid clamp(0.8px,0.8vw,1vh);
+}
+
+.ctn-h1-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(5px,2vw,1.2vh) 0;
+    width: 100%;
+}
+
+.style-h1 {    
+    font-family: 'Beau Rivage';
+    color: rgb(0, 0, 0);
+    font-size: clamp(4rem,12vw,8vh);
+    transition: font-size 0.5s ease;
+}
+
+.style-h2 {
+    font-family: 'Beau Rivage';
+    margin-top: -0.5vh;
+    font-size: clamp(1.5rem,5.3vw, 5vh);
+    letter-spacing: 1.4px;
+    transition: font-size 0.5s ease;
+}
+
+.ctn-h2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: clamp(8px,2vw,1vh) 0;
+}
+
+.imageWrap {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.imageWrap img {
+    grid-area: 1 / 1;
+    width: clamp(120px, 32vw, 30vh);
+    max-height: 7vh;
+    object-fit: contain;
+    transition: width 0.5s ease, max-height 0.5s ease;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.imageWrap img.active {
+    opacity: 1;
+}
+
+
+
+.menuBtnCtn{
+    position: relative;
+    display: flex;
+    height: 0;
+}
+
+.menuBtn {
+    position: sticky;
+    font-size: 24px;
+    padding: 2px 5px 3px 5px;
+    height: fit-content;
+    border-radius: 4px;
+    background-color: rgba(240, 230, 210, 0.7);
+    color: black;
+    border: 0px rgb(166, 124, 20) solid;
+    transition: background-color 0.1s ease;
+    margin-left: auto;
+    margin-right: 14px;
+    margin-top: 10px;
+}
+
+
+
+.menuBtn:active, .menuBtn:focus-visible {
+    background-color: rgb(205, 187, 152);
+}
+
+#headerBottom {
+    width: 100%;
+}
+
+
+
+
+
+/* HEADER SHRINK */
+
+header.shrunk .style-h1 {    
+  font-size: clamp(3.2rem, 6vw, 5vh);
+}
+
+header.shrunk .style-h2 {
+    font-family: 'Beau Rivage';
+    margin-top: -0.5vh;
+    font-size: clamp(1.1rem,4vw,4vh);
+    letter-spacing: 1.4px;
+}
+
+header.shrunk .ctn-h2 {
+    display: flex;
+    width: 100%;
+    padding-top: clamp(4px,1vw,0.5vh);
+}
+
+header.shrunk .divider-h1 {
+    width: clamp(80px, 20vw, 20vh);
+    max-height: 5vh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* #endregion HEADER h */
+
+/* #region NAV */
+
+nav {
+  margin-top: 0;
+  position: relative;
+}
+
+.navCtn1 {
+    position: absolute;
+    overflow: hidden;
+    top:-1px;
+    height: 0;
+    transition: 
+        height 0.5s ease,
+        border-bottom 0.5s ease ;
+    width: 100%;
+    background-color: #F0E6D2;
+    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
+}
+
+.navCtn2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 16px;
+    font-family: "Nunito Sans", sans-serif;
+    gap: clamp(6px,1vw, 30px);
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.navOption {
+    color: black;
+    text-align: center;
+}
+
+.navSeparator {
+    margin: 0 auto;
+    width: 100px;
+    padding-top: 6px;
+}
+
+/* #endregion NAV */
+
+
+.img1 {
+    height: 26vh;
+    z-index: 1;
+    background: url("pictures/header_picture2.jpeg") no-repeat center center;
+    background-size: cover;
+    max-height: 400px;
+}
+
+.headerImage {
+}
+
+
+/* #region SECTIONS */
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sectionArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.se1 {
+    border-top: rgb(166, 124, 20) solid 2px;
+    background-color: rgb(243, 238, 225);
+}
+
+.se2 {
+    border-top: #486946 solid 2px;
+    background-color: #EBF7E9;
+}
+
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    /*height: clamp(60px,7vh,80px);*/
+    height: clamp(60px,13vw,10vh);
+    width: 100%;
+    padding: 10px 0 0 0;
+
+}
+
+
+
+.separator4 {
+    width: 120px;
+    margin: 0 auto;
+}
+
+.se1-header {
+}
+
+.se2-header {
+}
+
+
+
+.se-h-ctn {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.style-se-h1 {
+    font-family: 'Beau Rivage';
+    font-size: 4rem;
+}
+
+.sectionHeaderSeparator {
+    margin: 0 auto;
+    width: 150px;
+}
+
+.se-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.se-b-ctn {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding: 0 15%;
+}
+
+.se-b-ctn2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.textDecorationLeft, .textDecorationRight {
+    width: 30px;
+    margin: 0 8px;
+}
+
+.style-se-h2 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 2.2rem;
+    padding: 8px 0;
+}
+
+.style-se-h3 {
+    font-family: "Quintessential", serif;
+    font-size: 18px;
+    padding: 4px 0;
+    margin: 0 auto;
+}
+
+.style-se-h4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.style-se-p1 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    padding: 2px 0;
+    margin: 0 auto;
+}
+
+.style-se-p2 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    padding: 4px 0 2px 0;
+    margin: 0 auto;
+    color: rgb(85, 85, 85);
+    font-style: italic;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.se-b-ctn3 {
+    padding: 20px 0;
+}
+
+.se-btn1 {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.se-btn1-text {
+    font-family: "Nunito Sans", sans-serif;
+    color: white;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+.style-se-p3 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    padding-top: 2px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.style-se-p4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
+    padding-bottom: 2px;
+    margin: 0 auto;
+}
+
+.style5 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.style6 {
+    font-family: "Nunito Sans", sans-serif;
+    color: rgb(64, 64, 64);
+    font-style: italic;
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+
+.style8 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 0 4px 0;
+}
+
+
+
+/* #endregion SECTIONS */
+
+/* Tablet+ */
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.justified {
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.separator2 {
+    margin: 0 auto;
+    padding: 4px 0;
+    width: 14px;
+}
+
+.separator3 {
+    height: 10px;
+}
+
+
+
+
+
+.sectionHeaderCtn {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style */
+
+.hstyle1 {
+    color: black;
+    font-family: 'Beau Rivage';
+    font-size: clamp(5rem,5vw,10rem);
+}
+
+/* Img and dividers */
+
+
+
+.divider3 {
+    height: 0.4vh;
+    /*background-color: rgb(84, 84, 84);*/
+    background-color: rgb(84,84,84);
+}
+
+
+
+@media (orientation: landscape) {
+
+    .img1 {
+        height: 30vh;
+    }
+    
+}
+

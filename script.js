@@ -66,10 +66,18 @@ const sections = document.querySelectorAll(".navColorChange");
 
 const sectionColors = {
   mainPic: "rgb(240, 230, 210)",
-  travel: "rgb(199, 219, 197)",
-  accommodation: "rgb(184, 232, 222)",
-  visit: "rgb(203, 186, 158)",
-  section: "rgb(254, 231, 255)"
+  travel: "#D1DFD0",
+  accommodation: "rgb(240, 230, 210)",
+  visit: "#D1DFD0",
+  contact: "rgb(240, 230, 210)",
+};
+
+const sectionBorderColors = {
+  mainPic: "#A67C14",
+  travel: "#486946",
+  accommodation: "#A67C14",
+  visit: "#486946",
+  contact: "#A67C14"
 };
 
 
@@ -102,10 +110,28 @@ window.addEventListener("scroll", () => {
 /* Toggle Menu */
 const btn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
+const testBtn = document.getElementById("test");
+const test2Btn = document.getElementById("test2");
+const headerDivider = document.getElementById("headerDivider")
+const dividerGreen = document.getElementById("dividerGreen")
+const dividerGold = document.getElementById("dividerGold")
+
 
 btn.addEventListener("click", () => {
   toggleMenu();
 });
+
+let x = 0;
+
+testBtn.addEventListener("click", () => {
+    window.location.href = "index2.html";
+});
+
+test2Btn.addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
+
 
 
 
@@ -199,7 +225,13 @@ function checkSectionChange() {
     console.log("New section:", newSection.id);
     currentSection = newSection;
     header.style.backgroundColor = sectionColors[currentSection.id];
-    nav.style.backgroundColor = sectionColors[currentSection.id]; 
+    nav.style.backgroundColor = sectionColors[currentSection.id];
+    nav.style.borderBottomColor = sectionBorderColors[currentSection.id];
+    btn.style.backgroundColor = sectionColors[currentSection.id];
+    dividerGreen.classList.toggle("active")
+    dividerGold.classList.toggle("active")
+    headerDivider.style.opacity = 0;
+
   }
 }
 

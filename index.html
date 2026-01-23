@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Wedding</title>
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Beau Rivage' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
@@ -17,10 +17,13 @@
   <header>
     <div class="ctn-h1" id="ctn-h1">
       <div class="ctn-h1-inner">
-        <div class="style-h1">Sonja & Corentin</div>
-        <div class="style-h2">8.8.2026</div>
+        <div class="style-h1" id="test">Sonja & Corentin</div>
+        <div class="style-h2" id="test2">8.8.2026</div>
         <div class="ctn-h2">
-          <img class="divider-h1" src="pictures/divider1.png" alt="divider">
+          <div class="imageWrap">
+            <img class="divider-h1 " src="pictures/divider1green.png" alt="divider" id="dividerGreen">
+            <img class="divider-h1 active" src="pictures/divider1gold.png" alt="divider" id="dividerGold">
+          </div>
         </div>
       </div>
       <nav>
@@ -139,7 +142,7 @@
           <span class="style-se-h1">Travel</span>
         </div>
       </div>
-      <img class="sectionHeaderSeparator" src="pictures/divider6.png">
+      <img class="sectionHeaderSeparator" src="pictures/divider6green.png">
 
       <div class="se-body" >
         <div class="se-b-ctn">          
@@ -148,7 +151,7 @@
           <span class="style-se-p1 justified">Our wedding will take place in La Turballe, a small seaside town in north-western France. Getting there takes a little planning, especially for those travelling from abroad, but we hope the information below will help make your journey as smooth as possible.</span>
           <div class="separator3"></div>
 
-          <img class="separator2" src="pictures/starBlack.png">
+          <img class="separator2" src="pictures/starGreen.png">
           <div class="separator3"></div>
           <span class="style-se-h2 centered">Flying from Finland</span>
           <span class="style-se-p3">Helsinki ➟ Paris (CDG airport) </span>
@@ -160,7 +163,7 @@
           <div class="separator3"></div>
 
 
-          <img class="separator2" src="pictures/starBlack.png">
+          <img class="separator2" src="pictures/starGreen.png">
           <div class="separator3"></div>          
           <span class="style-se-h2 centered">From Paris</span>
           <span class="style-se-p1 justified">The easiest way to reach Saint-Nazaire from Paris is by train. Trains leave regularly from Montparnasse railway station (70 minutes form CDG airport), either direct to Saint-Nazaire, or with a change in Nantes.</span>
@@ -179,7 +182,7 @@
           <span class="style-se-p1 justified">If you wish to rent a car in Paris, the drive to Saint-Nazaire takes about 5 hours.</span>
           <div class="separator3"></div>
           
-          <img class="separator2" src="pictures/starBlack.png">
+          <img class="separator2" src="pictures/starGreen.png">
           <div class="separator3"></div>
           <span class="style-se-h2 centered">From Nantes</span>
           <span class="style-se-p1 justified">Trains leave every hour from Nantes railway station to Saint-Nazaire and the journey takes about 40 minutes.</span>
@@ -187,7 +190,7 @@
           <span class="style-se-p1 justified">The car ride takes about 60 minutes.</span>
           <div class="separator3"></div>
 
-          <img class="separator2" src="pictures/starBlack.png">
+          <img class="separator2" src="pictures/starGreen.png">
           <div class="separator3"></div>
           <span class="style-se-h2 centered">Getting around locally</span>
           <div class="separator3"></div>
@@ -205,7 +208,7 @@
           <div class="separator3"></div>
           <div class="separator3"></div>
 
-          <img class="separator2" src="pictures/starBlack.png">
+          <img class="separator2" src="pictures/starGreen.png">
           <div class="separator3"></div>
           <span class="style-se-p3 centered">Feel free to reach out to us in case of any question regarding the planning of your journey!</span>
 
@@ -214,7 +217,7 @@
 
     </div>
 
-    <div class="sectionArea se3 navColorChange" id="accommodation">
+    <div class="sectionArea se1 navColorChange" id="accommodation">
       <div class="sectionHeader se3-header">
         <div class="se-h-ctn">
           <span class="style-se-h1">Accommodation</span>
@@ -235,13 +238,13 @@
       </div>
     </div>
 
-    <div class="sectionArea se4 navColorChange" id="visit">
+    <div class="sectionArea se2 navColorChange" id="visit">
       <div class="sectionHeader se4-header">
         <div class="se-h-ctn">
-          <span class="style-se-h1">Visit</span>
+          <span class="style-se-h1">Visit the area</span>
         </div>
       </div>
-      <img class="sectionHeaderSeparator" src="pictures/divider6.png">
+      <img class="sectionHeaderSeparator" src="pictures/divider6green.png">
 
       <div class="se-body" >
         <div class="se-b-ctn">  
@@ -255,11 +258,11 @@
         </div>
       </div>
     </div>
-
-    <div class="sectionArea se5 navColorChange" id="section">
-      <div class="sectionHeader se5-header">
+    
+        <div class="sectionArea se1 navColorChange" id="contact">
+      <div class="sectionHeader se4-header">
         <div class="se-h-ctn">
-          <span class="style-se-h1">Section</span>
+          <span class="style-se-h1">Contact</span>
         </div>
       </div>
       <img class="sectionHeaderSeparator" src="pictures/divider6.png">
@@ -268,14 +271,86 @@
         <div class="se-b-ctn">  
           <div class="separator3"></div>
           <div class="separator3"></div>
-          <span class="style-se-p1 justified">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pretium nunc nec dictum lacinia. Sed aliquet blandit quam sit amet aliquet. Vivamus sed lacus ut tortor blandit posuere quis eu odio. Aenean laoreet faucibus nisl eget egestas. Nam tincidunt posuere est ac congue. Pellentesque fermentum nec mauris sed congue. Praesent viverra nec dui non porta. Integer tempor arcu ipsum, a mollis eros lobortis vitae. Fusce pretium ipsum a magna vehicula, eu tincidunt sapien efficitur. Curabitur imperdiet accumsan dolor eu pellentesque. In placerat, velit sed dignissim eleifend, tortor mauris varius dui, at viverra dolor est vitae nulla. Cras nec nibh malesuada, iaculis quam eu, facilisis dolor. Donec tortor lacus, dictum quis porta ac, eleifend quis libero. Nulla facilisi.
-          </span>
+          <span class="style-se-p1 justified">Our contact information</span>
+          <span class="style-se-p1 justified">Phone number</span>
+          <span class="style-se-p1 justified">Email</span>
+          <span class="style-se-p1 centered">maybe contact of the bridesmen and groomsmen etc.</span>
           <div class="separator3"></div>
           <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+          <div class="separator3"></div>
+
+
         </div>
       </div>
     </div>
+
 
   </div>
 
