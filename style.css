@@ -22,7 +22,7 @@ a {
 header {
     position: sticky;
     top: 0;
-    background-color: rgb(235, 229, 216);
+    background-color: rgb(236, 223, 195);
     transition: 
         background-color 0.5s ease,
         width 0.5s ease,
@@ -233,12 +233,12 @@ nav {
 
 .se1 {
     border-top: rgb(166, 124, 20) solid 2px;
-    background-color: rgb(243, 238, 225);
+    background-color: rgb(240, 235, 221);
 }
 
 .se2 {
     border-top: #486946 solid 2px;
-    background-color: #EBF7E9;
+    background-color: #eff7ed;
 }
 
 
@@ -248,9 +248,10 @@ nav {
     /*height: clamp(60px,7vh,80px);*/
     height: clamp(60px,13vw,10vh);
     width: 100%;
-    padding: 10px 0 0 0;
+    padding: 20px 0 6px 0;
 
 }
+
 
 
 
@@ -285,6 +286,7 @@ nav {
 .se-body {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 }
 
 .se-b-ctn {
@@ -316,7 +318,7 @@ nav {
 .style-se-h3 {
     font-family: "Quintessential", serif;
     font-size: 18px;
-    padding: 4px 0;
+    padding: 5px 0;
     margin: 0 auto;
 }
 
@@ -325,6 +327,18 @@ nav {
     font-size: 1.2rem;
     margin: 0 auto;
     font-weight: bold;
+}
+
+.style-se-h5 {
+    font-family: "Quintessential", serif;
+    font-size: 15px;
+    padding: 4px 0;
+    margin: 0 auto;
+}
+
+.style-se-stars {
+    font-size: 10px;
+    color: #A67C14;
 }
 
 .style-se-p1 {
@@ -341,6 +355,11 @@ nav {
     margin: 0 auto;
     color: rgb(85, 85, 85);
     font-style: italic;
+}
+
+.style-se-list {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
 }
 
 .link {
@@ -411,6 +430,24 @@ nav {
 
 
 
+/* HOTELS */
+
+.hotelCtn {
+    border: red 1px solid;
+    display: flex;
+}
+
+.hotelImgCtn {
+    border: 1px green solid;
+    width: 30%;
+}
+
+.hotelInfoCtn {
+    border: blue 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
 /* #endregion SECTIONS */
 
 /* Tablet+ */
@@ -430,6 +467,11 @@ nav {
     text-align: justify;
 }
 
+.leftAlign {
+    margin: 0;
+    text-align: left;
+}
+
 .separator2 {
     margin: 0 auto;
     padding: 4px 0;
@@ -439,6 +481,7 @@ nav {
 .separator3 {
     height: 10px;
 }
+
 
 
 
