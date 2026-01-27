@@ -2,8 +2,10 @@ html, body {
   margin: 0;
 }
 
+
 html {
     font-size: 10px;
+    background-color: red;
 }
 .app {
     min-height: 100vh;
@@ -27,6 +29,7 @@ header {
         background-color 0.5s ease,
         width 0.5s ease,
         max-height 0.5s ease;
+    padding-top: env(safe-area-inset-top);
 }
 
 .ctn-h1 {
