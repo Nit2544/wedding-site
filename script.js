@@ -134,14 +134,6 @@ btn.addEventListener("click", () => {
 
 let x = 0;
 
-testBtn.addEventListener("click", () => {
-    window.location.href = "index2.html";
-});
-
-test2Btn.addEventListener("click", () => {
-    window.location.href = "index.html";
-});
-
 
 
 
