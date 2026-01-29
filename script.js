@@ -33,6 +33,7 @@ let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
 const h2 = document.querySelector(".style-h2");
 const hPic = document.querySelector(".divider-h1");
+ 
 const headerBottom = document.getElementById("headerBottom");
 
 let menuOpen = false;
@@ -65,12 +66,20 @@ const menu = document.querySelector("nav");
 const sections = document.querySelectorAll(".navColorChange");
 
 const sectionColors = {
-  mainPic: "rgb(240, 230, 210)",
+  mainPic: "rgb(236, 223, 195)",
   travel: "#D1DFD0",
-  accommodation: "rgb(240, 230, 210)",
+  accommodation: "rgb(236, 223, 195)",
   visit: "#D1DFD0",
-  contact: "rgb(240, 230, 210)",
+  contact: "rgb(236, 223, 195)",
 };
+
+const sectionDividers = {
+  mainPic: "pictures/divider6.png",
+  travel: "pictures/divider6green.png",
+  accommodation: "pictures/divider6.png",
+  visit: "pictures/divider6green.png",
+  contact: "pictures/divider6.png",  
+}
 
 const sectionBorderColors = {
   mainPic: "#A67C14",
@@ -109,10 +118,12 @@ window.addEventListener("scroll", () => {
 
 /* Toggle Menu */
 const btn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
+const nav1 = document.getElementById("nav1");
+const nav2 = document.getElementById("nav2");
+const navDivider = document.getElementById("navSeparator");
+
 const testBtn = document.getElementById("test");
 const test2Btn = document.getElementById("test2");
-const headerDivider = document.getElementById("headerDivider")
 const dividerGreen = document.getElementById("dividerGreen")
 const dividerGold = document.getElementById("dividerGold")
 
@@ -137,54 +148,62 @@ test2Btn.addEventListener("click", () => {
 
 /* Handle menu click */
 
-const links = nav.querySelectorAll("a");
+const links1 = nav1.querySelectorAll("a");
+const links2 = nav2.querySelectorAll("a");
 
-links.forEach(link => {
+
+links1.forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();  // prevent default anchor behavior
     const target = document.querySelector(
       link.getAttribute("href")
     );
-
-
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
       top: targetPosition - headerBottom.offsetTop + 2,
       behavior: "smooth"
     });
-
     toggleMenu();   // close menu
+  });
+});
 
-
-
+links2.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();  // prevent default anchor behavior
+    const target = document.querySelector(
+      link.getAttribute("href")
+    );
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: targetPosition - headerBottom.offsetTop + 2,
+      behavior: "smooth"
+    });
+    toggleMenu();   // close menu
   });
 });
 
 
+
 function toggleMenu() {
   if (menuOpen) {
-    console.log("Closing menu");
-    nav.style.height = "0px";
+    nav1.style.height = "0px";
 
     menuOpen = false;
     checkSectionChange();
   } else {
-    console.log("Opening menu");
-    nav.style.height = nav.scrollHeight + "px";
+    nav1.style.height = nav1.scrollHeight + "px";
 
 
 
     menuOpen = true;
     checkSectionChange();
   }
-  console.log(header.offsetHeight);
-
 }
 
 document.addEventListener("pointerdown", (e) => {
   if (
     menuOpen &&
-    !nav.contains(e.target) &&
+    !nav1.contains(e.target) &&
     e.target !== btn // also exclude the menu button itself
   ) {
     toggleMenu();
@@ -194,7 +213,6 @@ document.addEventListener("pointerdown", (e) => {
 
 function shrinkHeader() {
   if (!headerShrunk) {
-    console.log("Shrinking header");
     header.classList.add('shrunk')
     headerShrunk = true;
   }
@@ -202,7 +220,6 @@ function shrinkHeader() {
 
 function expandHeader() {
   if (headerShrunk) {
-    console.log("Expanding header");
     header.classList.remove('shrunk');
     headerShrunk = false;
   }
@@ -222,15 +239,14 @@ function checkSectionChange() {
   }
 
   if (newSection !== currentSection) {
-    console.log("New section:", newSection.id);
     currentSection = newSection;
     header.style.backgroundColor = sectionColors[currentSection.id];
-    nav.style.backgroundColor = sectionColors[currentSection.id];
-    nav.style.borderBottomColor = sectionBorderColors[currentSection.id];
+    nav1.style.backgroundColor = sectionColors[currentSection.id];
+    nav1.style.borderBottomColor = sectionBorderColors[currentSection.id];
     btn.style.backgroundColor = sectionColors[currentSection.id];
+    navDivider.src = sectionDividers[currentSection.id];
     dividerGreen.classList.toggle("active")
     dividerGold.classList.toggle("active")
-    headerDivider.style.opacity = 0;
 
   }
 }

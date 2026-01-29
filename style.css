@@ -5,7 +5,7 @@ html, body {
 
 html {
     font-size: 10px;
-    background-color: red;
+    background-color: rgb(236, 223, 195);
 }
 .app {
     min-height: 100vh;
@@ -29,7 +29,6 @@ header {
         background-color 0.5s ease,
         width 0.5s ease,
         max-height 0.5s ease;
-    padding-top: env(safe-area-inset-top);
 }
 
 .ctn-h1 {
@@ -37,9 +36,6 @@ header {
     display: flex;
     flex-direction: column;
     z-index: 20;
-}
-
-.borderBottom1 {
 }
 
 .borderBottom2 {
@@ -50,23 +46,32 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(5px,2vw,1.2vh) 0;
+    padding: clamp(5px,2vw,10px) 0;
     width: 100%;
 }
 
 .style-h1 {    
     font-family: 'Beau Rivage';
     color: rgb(0, 0, 0);
-    font-size: clamp(4rem,12vw,8vh);
+    font-size: clamp(5.4rem,14vw,8vh);
     transition: font-size 0.5s ease;
+}
+
+header.shrunk .style-h1 {    
+  font-size: clamp(3rem, 6vw, 5vh);
 }
 
 .style-h2 {
     font-family: 'Beau Rivage';
     margin-top: -0.5vh;
-    font-size: clamp(1.5rem,5.3vw, 5vh);
+    font-size: clamp(2.6rem,6vw, 34px);
     letter-spacing: 1.4px;
     transition: font-size 0.5s ease;
+}
+
+header.shrunk .style-h2 {
+    font-size: clamp(1.4rem,4vw,4vh);
+    letter-spacing: 1.4px;
 }
 
 .ctn-h2 {
@@ -88,8 +93,10 @@ header {
     width: clamp(120px, 32vw, 30vh);
     max-height: 7vh;
     object-fit: contain;
-    transition: width 0.5s ease, max-height 0.5s ease;
-    transition: opacity 0.5s ease;
+    transition: 
+        width 0.5s ease, 
+        max-height 0.5s ease,
+        opacity 0.5s ease;
     opacity: 0;
 }
 
@@ -136,16 +143,9 @@ header {
 
 /* HEADER SHRINK */
 
-header.shrunk .style-h1 {    
-  font-size: clamp(3.2rem, 6vw, 5vh);
-}
 
-header.shrunk .style-h2 {
-    font-family: 'Beau Rivage';
-    margin-top: -0.5vh;
-    font-size: clamp(1.1rem,4vw,4vh);
-    letter-spacing: 1.4px;
-}
+
+
 
 header.shrunk .ctn-h2 {
     display: flex;
@@ -169,6 +169,10 @@ nav {
   position: relative;
 }
 
+.navDesktop {
+    display: none;
+}
+
 .navCtn1 {
     position: absolute;
     overflow: hidden;
@@ -178,7 +182,7 @@ nav {
         height 0.5s ease,
         border-bottom 0.5s ease ;
     width: 100%;
-    background-color: #F0E6D2;
+    background-color: rgb(236, 223, 195);
     border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
 }
 
@@ -187,7 +191,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     padding-bottom: 16px;
-    font-family: "Nunito Sans", sans-serif;
     gap: clamp(6px,1vw, 30px);
     font-size: clamp(2rem, 3vw, 3rem);
 }
@@ -195,6 +198,8 @@ nav {
 .navOption {
     color: black;
     text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+
 }
 
 .navSeparator {
@@ -248,11 +253,9 @@ nav {
 .sectionHeader {
     display: flex;
     align-items: center;
-    /*height: clamp(60px,7vh,80px);*/
     height: clamp(60px,13vw,10vh);
     width: 100%;
-    padding: 20px 0 6px 0;
-
+    padding: 24px 0 16px 0;
 }
 
 
@@ -278,7 +281,7 @@ nav {
 
 .style-se-h1 {
     font-family: 'Beau Rivage';
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 .sectionHeaderSeparator {
@@ -453,12 +456,7 @@ nav {
 
 /* #endregion SECTIONS */
 
-/* Tablet+ */
-@media (min-width: 768px) {
-  .layout {
-    flex-direction: row;
-  }
-}
+
 
 .centered {
     margin: 0 auto;
@@ -534,3 +532,127 @@ nav {
     
 }
 
+/* Phone landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .ctn-h1-inner {
+        padding: clamp(4px,0.6vw,11px) 0;
+    }
+
+    header.shrunk .ctn-h1-inner {
+        padding: clamp(6px,0.8vw,11px) 0;
+    }
+
+    .style-h1 {
+        font-size: clamp(3rem,4.5vw,9rem);
+    }
+
+    header.shrunk .style-h1 {
+        font-size: clamp(3rem,4.5vw,9rem);
+    }
+
+    .style-h2 {
+        font-size: clamp(1.8rem,1vw,6rem);
+    }
+
+    header.shrunk .style-h2 {
+        font-size: clamp(1.8rem,1vw,6rem);
+    }
+
+    .ctn-h2 {
+        padding: clamp(4px,1vw,10vh) 0;
+    }
+
+    header.shrunk .ctn-h2 {
+        padding: clamp(10px,1vw,10vh) 0;
+    }
+
+    .imageWrap img {
+        width: clamp(80px, 12vw, 140px);
+    }
+
+    header.shrunk .imageWrap img {
+        width: clamp(80px, 12vw, 140px);
+    }
+}
+
+/* Tablet+ */
+@media (min-width: 768px) and (min-height: 600px) {
+
+    .ctn-h1-inner {
+        padding: clamp(8px,1.05vw,11px) 0;
+    }
+
+    header.shrunk .ctn-h1-inner {
+        padding: clamp(6px,0.8vw,11px) 0;
+    }
+
+    .style-h1 {
+        font-size: clamp(7rem,8vw,9rem);
+    }
+
+    header.shrunk .style-h1 {
+        font-size: clamp(3.5rem,4.6vw,5rem);
+    }
+
+    .style-h2 {
+        font-size: clamp(4rem,5.2vw,6rem);
+    }
+
+    header.shrunk .style-h2 {
+        font-size: clamp(2rem,2.6vw,6rem);
+    }
+
+    .ctn-h2 {
+        padding: clamp(10px,1vw,10vh) 0;
+    }
+
+    .imageWrap img {
+        width: clamp(200px, 26vw, 260px);
+    }
+
+    header.shrunk .imageWrap img {
+        width: clamp(100px, 14vw, 130px);
+    }
+
+    .navCtn1 {
+        display: none;
+    }
+
+    .navDesktop {
+        display: flex;
+        border-bottom: rgb(166, 124, 20) solid clamp(4px,0.52vw,1vh);
+    }
+
+    .navDesktopCtn {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 10px;
+    }
+
+    .navOption {
+        font-size: clamp(14px,1.82vw,10vh);
+    }
+
+    .navOptionSeparator {
+        font-size: clamp(12px,1.5vw,20px);
+        align-self: center;
+    }
+
+    .menuBtnCtn {
+        display: none;
+    }
+
+    .sectionHeader {
+        height: clamp(60px,3vw,10vh);
+        padding: 20px 0 12px 0;
+    }
+
+    .style-se-h1 {
+        font-size: 5rem;
+    }
+
+
+
+}
