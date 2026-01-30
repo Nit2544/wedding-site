@@ -171,6 +171,7 @@ nav {
 
 .navDesktop {
     display: none;
+    justify-content: center;
 }
 
 .navCtn1 {
@@ -533,7 +534,7 @@ nav {
 }
 
 /* Phone landscape */
-@media (max-height: 500px) and (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 500px) {
 
     .ctn-h1-inner {
         padding: clamp(4px,0.6vw,11px) 0;
@@ -655,4 +656,72 @@ nav {
 
 
 
+}
+
+/* Laptop and landscape tablets*/
+@media (min-width: 900px) and (min-height: 600px) {
+    
+    .ctn-h1-inner {
+        padding: 4px 0;
+    }
+
+    header.shrunk .ctn-h1-inner {
+        padding: 4px 0;
+    }
+
+    .style-h1 {
+        font-size: 5rem;
+    }
+
+    header.shrunk .style-h1 {
+        font-size: 3rem;
+    }
+
+    .style-h2 {
+        font-size: 2.5rem;
+    }
+    header.shrunk .style-h2 {
+        font-size: 1.5rem;
+    }
+    .ctn-h2 {
+        padding: 10px;
+    }
+
+    header.shrunk .ctn-h2 {
+        padding: 4px;
+    }
+
+
+
+    .imageWrap img {
+        width: 150px;
+    }
+
+    header.shrunk .imageWrap img {
+        width: 100px;
+    }
+
+    .navDesktop {
+        border-bottom: rgb(166, 124, 20) solid 4px;
+    }
+
+    .navDesktopCtn {
+        width: 60%;
+    }
+
+    .navOption {
+        font-size: 14px;
+    }
+
+    .navOptionSeparator {
+        font-size: 14px;
+        align-self: center;
+    }
+
+    .se1 {
+        border-top: rgb(166, 124, 20) solid 4px;
+    }
+}
+
+@media (min-width: 1400px) {
 }
