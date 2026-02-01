@@ -49,6 +49,7 @@ a:visited {
 .homePage .langOpt {
     font-size: 2rem;
     font-family: "Nunito Sans", sans-serif;
+    color: red;
 }
 
 .homePage .langDivider {
