@@ -16,8 +16,45 @@ html {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
+a:visited {
+    color: inherit;
+}
+
+/* Home page */
+
+.homePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homePage .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homePage .languageCtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.homePage .langOpt {
+    font-size: 2rem;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.homePage .langDivider {
+    padding: 10px 0;
+    color:#A67C14;
+    font-size: 1.5rem;
+}
 
 /* #region HEADER h */
 
@@ -553,7 +590,6 @@ footer {
     display: flex;
     justify-content: space-evenly;
     width: 55%;
-    font-size: 13px;
 }
 
 
