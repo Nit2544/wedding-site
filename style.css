@@ -29,6 +29,7 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(240, 235, 221);
 }
 
 .homePage .header {
