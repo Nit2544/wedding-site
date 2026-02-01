@@ -1,4 +1,25 @@
-/*document.addEventListener("DOMContentLoaded", () => {
+/*
+// navBar effects //
+
+  const navOptions = document.querySelectorAll(".navOption");
+
+  navOptions.forEach(opt => {
+    const text = opt.textContent.trim();
+    opt.textContent = "";
+
+    // Wrap each character in a span
+    text.split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.setProperty("--delay", `${i * 0.04}s`);
+      opt.appendChild(span);
+    });
+  });
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".btn1");
   const title = document.querySelectorAll(".header");
 
@@ -33,30 +54,14 @@ let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
 const h2 = document.querySelector(".style-h2");
 const hPic = document.querySelector(".divider-h1");
- 
-const headerBottom = document.getElementById("headerBottom");
+
+const navMobile = document.getElementById("navMobile");
+const navDesktop = document.getElementById("navDesktop");
+
+const headerBottomMobile = document.getElementById("headerBottomMobile");
+const headerBottomDesktop = document.getElementById("headerBottomDesktop");
 
 let menuOpen = false;
-let ignoreScroll = false; // flag to ignore scroll while toggling
-
-
-// navBar effects //
-
-  const navOptions = document.querySelectorAll(".navOption");
-
-  navOptions.forEach(opt => {
-    const text = opt.textContent.trim();
-    opt.textContent = "";
-
-    // Wrap each character in a span
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.style.setProperty("--delay", `${i * 0.04}s`);
-      opt.appendChild(span);
-    });
-  });
-
 
 
 // Header change of color //
@@ -118,8 +123,7 @@ window.addEventListener("scroll", () => {
 
 /* Toggle Menu */
 const btn = document.getElementById("menuBtn");
-const nav1 = document.getElementById("nav1");
-const nav2 = document.getElementById("nav2");
+
 const navDivider = document.getElementById("navSeparator");
 
 const testBtn = document.getElementById("test");
@@ -140,8 +144,8 @@ let x = 0;
 
 /* Handle menu click */
 
-const links1 = nav1.querySelectorAll("a");
-const links2 = nav2.querySelectorAll("a");
+const links1 = navMobile.querySelectorAll("a");
+const links2 = navDesktop.querySelectorAll("a");
 
 
 links1.forEach(link => {
@@ -178,12 +182,12 @@ links2.forEach(link => {
 
 function toggleMenu() {
   if (menuOpen) {
-    nav1.style.height = "0px";
+    navMobile.style.height = "0px";
 
     menuOpen = false;
     checkSectionChange();
   } else {
-    nav1.style.height = nav1.scrollHeight + "px";
+    navMobile.style.height = navMobile.scrollHeight + "px";
 
 
 
@@ -195,7 +199,7 @@ function toggleMenu() {
 document.addEventListener("pointerdown", (e) => {
   if (
     menuOpen &&
-    !nav1.contains(e.target) &&
+    !navMobile.contains(e.target) &&
     e.target !== btn // also exclude the menu button itself
   ) {
     toggleMenu();
@@ -233,8 +237,8 @@ function checkSectionChange() {
   if (newSection !== currentSection) {
     currentSection = newSection;
     header.style.backgroundColor = sectionColors[currentSection.id];
-    nav1.style.backgroundColor = sectionColors[currentSection.id];
-    nav1.style.borderBottomColor = sectionBorderColors[currentSection.id];
+    navMobile.style.backgroundColor = sectionColors[currentSection.id];
+    navMobile.style.borderBottomColor = sectionBorderColors[currentSection.id];
     btn.style.backgroundColor = sectionColors[currentSection.id];
     navDivider.src = sectionDividers[currentSection.id];
     dividerGreen.classList.toggle("active")

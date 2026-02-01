@@ -106,7 +106,7 @@ header.shrunk .style-h2 {
 
 
 
-.menuBtnCtn{
+.btnCtn{
     position: relative;
     display: flex;
     height: 0;
@@ -129,11 +129,12 @@ header.shrunk .style-h2 {
 
 
 
+
 .menuBtn:active, .menuBtn:focus-visible {
     background-color: rgb(205, 187, 152);
 }
 
-#headerBottom {
+#headerBottomMobile, #headerBottomDesktop {
     width: 100%;
 }
 
@@ -169,8 +170,9 @@ nav {
   position: relative;
 }
 
-.navDesktop {
+#navDesktop {
     display: none;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -184,7 +186,7 @@ nav {
         border-bottom 0.5s ease ;
     width: 100%;
     background-color: rgb(236, 223, 195);
-    border-bottom: rgb(166, 124, 20) solid clamp(0.8px,0.8vw,1vh);
+    border-bottom: rgb(166, 124, 20) solid 2px;
 }
 
 .navCtn2 {
@@ -297,7 +299,7 @@ nav {
     display: flex;
     flex-direction: column;
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .se-b-ctn2 {
@@ -315,7 +317,7 @@ nav {
 .style-se-h2 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 2.2rem;
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 .style-se-h3 {
@@ -346,14 +348,14 @@ nav {
 
 .style-se-p1 {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 14px;
-    padding: 2px 0;
+    font-size: 1.4rem;
+    padding: 3px 0;
     margin: 0 auto;
 }
 
 .style-se-p2 {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding: 4px 0 2px 0;
     margin: 0 auto;
     color: rgb(85, 85, 85);
@@ -370,7 +372,6 @@ nav {
 }
 
 .se-b-ctn3 {
-    padding: 20px 0;
 }
 
 .se-btn1 {
@@ -381,14 +382,14 @@ nav {
     width: 140px;
     height: 60px;
     margin: 0 auto;
+    border: #A67C14 1px solid;
     border-radius: 4px;
     cursor: pointer;
-
 }
 
 .se-btn1-text {
     font-family: "Nunito Sans", sans-serif;
-    color: white;
+    color: rgb(240, 235, 221);
     font-size: 22px;
     letter-spacing: 2px;
     font-style: italic;
@@ -470,14 +471,26 @@ nav {
     text-align: left;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .separator2 {
     margin: 0 auto;
     padding: 4px 0;
     width: 14px;
 }
 
-.separator3 {
+.lineSpace1 {
     height: 10px;
+}
+
+.lineSpace2 {
+    height: 20px;
+}
+
+.lineSpace3 {
+    height: 30px;
 }
 
 
@@ -520,11 +533,37 @@ nav {
 }
 
 
+/* FOOTER */
+
+footer {
+    border-top: #A67C14 solid 2px;
+    position: sticky;
+    bottom: 0;
+    height: 6vh;
+    background-color: rgb(236, 223, 195);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        font-family: "Nunito Sans", sans-serif;
+
+}
+
+.langChoiceCtn {
+    display: flex;
+    justify-content: space-evenly;
+    width: 55%;
+    font-size: 13px;
+}
+
+
+
 
 @media (orientation: landscape) {
 
     .img1 {
-        height: 30vh;
+        height: 40vh;
+        max-height: 20vw;
     }
     
 }
@@ -620,9 +659,11 @@ nav {
         display: none;
     }
 
-    .navDesktop {
+
+    #navDesktop {
         display: flex;
         border-bottom: rgb(166, 124, 20) solid clamp(4px,0.52vw,1vh);
+
     }
 
     .navDesktopCtn {
@@ -641,22 +682,35 @@ nav {
         align-self: center;
     }
 
-    .menuBtnCtn {
+    .btnCtn {
         display: none;
     }
 
     .sectionHeader {
         height: clamp(60px,3vw,10vh);
-        padding: 20px 0 12px 0;
+        padding: 30px 0 15px 0;
     }
 
     .style-se-h1 {
-        font-size: 5rem;
+        font-size: 5.4rem;
     }
 
     .style-se-h2 {
         padding: 12px 0;
+        font-size: 2.6rem;
+    }
 
+    .style-se-h3 {
+        font-size: 2.4rem;
+        padding: 6px 0;
+    }
+
+    .style-se-h4 {
+        font-size: 1.8rem;
+    }
+
+    .style-se-h5 {
+        font-size: 2rem;
     }
 
     .se-body {
@@ -664,10 +718,26 @@ nav {
     }
 
     .style-se-p1 {
-        font-size: 16px;
+        font-size: 1.8rem;
+        padding: 4px 0;
     }
 
-    .separator3 {
+    .style-se-p2 {
+        font-size: 1.8rem;
+    }
+
+    .style-se-p3 {
+        font-size: 1.8rem;
+        padding: 3px 0 2px 0;
+    }
+
+    .style-se-p4 {
+        font-size: 1.5rem;
+        padding-bottom: 3px;
+    }
+
+
+    .lineSpace1 {
         height: 14px;
     }
 
@@ -718,7 +788,7 @@ nav {
         width: 100px;
     }
 
-    .navDesktop {
+    #navDesktop {
         border-bottom: rgb(166, 124, 20) solid 4px;
     }
 
