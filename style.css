@@ -2,11 +2,16 @@ html, body {
   margin: 0;
 }
 
+.html1 {
+    font-size: 10px;
+    background-color: rgb(240, 235, 221);
+}
 
-html {
+.html2 {
     font-size: 10px;
     background-color: rgb(236, 223, 195);
 }
+
 .app {
     min-height: 100vh;
     display: flex;
@@ -17,6 +22,7 @@ html {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 a:visited {
@@ -34,15 +40,15 @@ a:visited {
 
 .homePage .ctn1 {
     border: #A67C14 2px solid;    
+    border-radius: 4px;
     background-color: rgb(236, 223, 195);
-
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     width: 90%;
-    padding: 50px 0;
-
+    max-width: 400px;
+    padding: 46px 0;
 }
 
 .homePage .header {
@@ -51,7 +57,33 @@ a:visited {
     align-items: center;
 }
 
-.homePage .languageCtn {
+.hp-h1 {
+    font-family: 'Beau Rivage';
+    font-size: 5rem;
+}
+
+.hp-h1 span {
+    display: inline-block;
+  animation: letterHighlight 0.6s ease forwards;
+    animation-delay: var(--delay);
+
+
+}
+
+.hp-h2 {
+    font-family: 'Beau Rivage';
+    font-size: 2.5rem;
+}
+
+.hp-img {
+    padding: 14px 0;
+}
+
+.hp-divider {
+    width: 120px;
+}
+
+.languageCtn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,12 +91,27 @@ a:visited {
     margin-top: 30px;
 }
 
-.homePage .langOpt {
+.langOpt {
     font-size: 2rem;
     font-family: "Nunito Sans", sans-serif;
 }
 
-.homePage .langDivider {
+.langOptDec {
+    opacity: 0;
+    padding: 0 5px;
+    font-size: 1.5rem;
+    transition: opacity 0.6s ease-out;
+}
+
+.langOpt:hover .langOptDec {
+    opacity: 1;
+}
+
+.langOpt.tap-animate .langOptDec {
+    opacity: 1;
+}
+
+.langDivider {
     padding: 10px 0;
     color:#A67C14;
     font-size: 1.5rem;
@@ -82,7 +129,7 @@ header {
         max-height 0.5s ease;
 }
 
-.ctn-h1 {
+.headerCtn {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -93,7 +140,7 @@ header {
     border-bottom: #486946 solid clamp(0.8px,0.8vw,1vh);
 }
 
-.ctn-h1-inner {
+.headerTitleCtn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +186,7 @@ header.shrunk .style-h2 {
     place-items: center;
 }
 
-.imageWrap img {
+.imageWrap .divider-h1 {
     grid-area: 1 / 1;
     width: clamp(120px, 32vw, 30vh);
     max-height: 7vh;
@@ -221,11 +268,7 @@ nav {
   position: relative;
 }
 
-#navDesktop {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .navCtn1 {
     position: absolute;
@@ -249,11 +292,14 @@ nav {
     font-size: clamp(2rem, 3vw, 3rem);
 }
 
+#navDesktop {
+    display: none;
+}
+
 .navOption {
     color: black;
     text-align: center;
     font-family: "Nunito Sans", sans-serif;
-
 }
 
 .navSeparator {
@@ -265,6 +311,11 @@ nav {
 /* #endregion NAV */
 
 
+
+
+.headerImage {
+}
+
 .img1 {
     height: 26vh;
     z-index: 1;
@@ -273,24 +324,19 @@ nav {
     max-height: 400px;
 }
 
-.headerImage {
-}
-
-
 /* #region SECTIONS */
 
-.section {
+.sections {
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-.sectionArea {
+.section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .se1 {
@@ -303,29 +349,13 @@ nav {
     background-color: #eff7ed;
 }
 
-
 .sectionHeader {
     display: flex;
     align-items: center;
-    height: clamp(60px,13vw,10vh);
-    width: 100%;
-    padding: 24px 0 16px 0;
-}
-
-
-
-
-.separator4 {
-    width: 120px;
-    margin: 0 auto;
-}
-
-
-
-
-.se-h-ctn {
+    height: 60px;
     width: fit-content;
     margin: 0 auto;
+    padding: 24px 0 16px 0;
 }
 
 .style-se-h1 {
@@ -341,19 +371,11 @@ nav {
 .se-body {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding: 20px 0 40px 0;
     width: 260px;
-
 }
 
 .se-b-ctn {
-    display: flex;
-    flex-direction: column;
-    font-size: 24px;
-    margin-bottom: 40px;
-}
-
-.se-b-ctn2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,11 +414,6 @@ nav {
     margin: 0 auto;
 }
 
-.style-se-stars {
-    font-size: 10px;
-    color: #A67C14;
-}
-
 .style-se-p1 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.4rem;
@@ -404,7 +421,22 @@ nav {
     margin: 0 auto;
 }
 
-.style-se-p2 {
+.style-se-p3 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.4rem;
+    padding-top: 2px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.style-se-p4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.2rem;
+    padding-bottom: 2px;
+    margin: 0 auto;
+}
+
+.style-se-link {
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.4rem;
     padding: 4px 0 2px 0;
@@ -413,16 +445,36 @@ nav {
     font-style: italic;
 }
 
-.style-se-list {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 12px;
+.style-se-link:visited {
+    color: rgb(85, 85, 85);
 }
 
-.link {
-    cursor: pointer;
+.lineSpace1 {
+    height: 10px;
 }
 
-.se-b-ctn3 {
+.lineSpace2 {
+    height: 20px;
+}
+
+.lineSpace3 {
+    height: 30px;
+}
+
+.blackDivider {
+    width: 120px;
+    margin: 0 auto;
+}
+
+.greenDivider {
+    margin: 0 auto;
+    padding: 4px 0;
+    width: 14px;
+}
+
+.style-se-stars {
+    font-size: 10px;
+    color: #A67C14;
 }
 
 .se-btn1 {
@@ -441,67 +493,12 @@ nav {
 .se-btn1-text {
     font-family: "Nunito Sans", sans-serif;
     color: rgb(240, 235, 221);
-    font-size: 22px;
+    font-size: 2.2rem;
     letter-spacing: 2px;
     font-style: italic;
 }
 
-.style-se-p3 {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 14px;
-    padding-top: 2px;
-    margin: 0 auto;
-    font-weight: bold;
-}
 
-.style-se-p4 {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 12px;
-    padding-bottom: 2px;
-    margin: 0 auto;
-}
-
-.style5 {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 14px;
-    padding: 2px 0;
-}
-
-.style6 {
-    font-family: "Nunito Sans", sans-serif;
-    color: rgb(64, 64, 64);
-    font-style: italic;
-    font-size: 14px;
-    padding: 2px 0;
-}
-
-
-.style8 {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 2px 0 4px 0;
-}
-
-
-
-/* HOTELS */
-
-.hotelCtn {
-    border: red 1px solid;
-    display: flex;
-}
-
-.hotelImgCtn {
-    border: 1px green solid;
-    width: 30%;
-}
-
-.hotelInfoCtn {
-    border: blue 1px solid;
-    display: flex;
-    flex-direction: column;
-}
 
 /* #endregion SECTIONS */
 
@@ -526,33 +523,14 @@ nav {
     font-weight: bold;
 }
 
-.separator2 {
-    margin: 0 auto;
-    padding: 4px 0;
-    width: 14px;
-}
-
-.lineSpace1 {
-    height: 10px;
-}
-
-.lineSpace2 {
-    height: 20px;
-}
-
-.lineSpace3 {
-    height: 30px;
-}
 
 
 
 
 
 
-.sectionHeaderCtn {
-    display: flex;
-    flex-direction: column;
-}
+
+
 
 
 
@@ -621,11 +599,48 @@ footer {
 /* Phone landscape */
 @media (orientation: landscape) and (max-height: 500px) {
 
-    .ctn-h1-inner {
+    
+    /* Home page */
+
+    .homePage .ctn1 {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px 0;
+    }
+
+    .hp-h1 {
+        font-family: 'Beau Rivage';
+        font-size: 4rem;
+    }
+
+    .hp-h2 {
+        font-family: 'Beau Rivage';
+        font-size: 2rem;
+    }
+
+    .hp-divider {
+        width: 80px;
+    }
+
+    .languageCtn {
+        margin-top: 10px;
+    }
+
+    .langOpt {
+        font-size: 1.6rem;
+        font-family: "Nunito Sans", sans-serif;
+    }
+
+    .langDivider {
+        padding: 4px 0;
+        font-size: 1.2rem;
+    }
+
+    .headerTitleCtn {
         padding: clamp(4px,0.6vw,11px) 0;
     }
 
-    header.shrunk .ctn-h1-inner {
+    header.shrunk .headerTitleCtn {
         padding: clamp(6px,0.8vw,11px) 0;
     }
 
@@ -653,7 +668,7 @@ footer {
         padding: clamp(10px,1vw,10vh) 0;
     }
 
-    .imageWrap img {
+    .imageWrap .divider-h1 {
         width: clamp(80px, 12vw, 140px);
     }
 
@@ -669,11 +684,49 @@ footer {
 /* Tablet+ */
 @media (min-width: 768px) and (min-height: 600px) {
 
-    .ctn-h1-inner {
+    /* Home page */
+
+    .homePage .ctn1 {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px 0;
+    }
+
+    .hp-h1 {
+        font-family: 'Beau Rivage';
+        font-size: 4rem;
+    }
+
+    .hp-h2 {
+        font-family: 'Beau Rivage';
+        font-size: 2rem;
+    }
+
+    .hp-divider {
+        width: 80px;
+    }
+
+    .languageCtn {
+        margin-top: 10px;
+    }
+
+    .langOpt {
+        font-size: 1.6rem;
+        font-family: "Nunito Sans", sans-serif;
+    }
+
+    .langDivider {
+        padding: 4px 0;
+        font-size: 1.2rem;
+    }
+
+    /* Header */
+
+    .headerTitleCtn {
         padding: clamp(8px,1.05vw,11px) 0;
     }
 
-    header.shrunk .ctn-h1-inner {
+    header.shrunk .headerTitleCtn {
         padding: clamp(6px,0.8vw,11px) 0;
     }
 
@@ -697,7 +750,7 @@ footer {
         padding: clamp(10px,1vw,10vh) 0;
     }
 
-    .imageWrap img {
+    .imageWrap .divider-h1 {
         width: clamp(200px, 26vw, 260px);
     }
 
@@ -709,11 +762,11 @@ footer {
         display: none;
     }
 
-
     #navDesktop {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         border-bottom: rgb(166, 124, 20) solid clamp(4px,0.52vw,1vh);
-
     }
 
     .navDesktopCtn {
@@ -724,7 +777,7 @@ footer {
     }
 
     .navOption {
-        font-size: clamp(14px,1.82vw,10vh);
+        font-size: clamp(15px,1.82vw,10vh);
     }
 
     .navOptionSeparator {
@@ -736,13 +789,33 @@ footer {
         display: none;
     }
 
+    /* Sections */
+
+    .se1, .se2 {
+        border-top-width: clamp(4px,0.52vw,1vh);
+    }
+
     .sectionHeader {
-        height: clamp(60px,3vw,10vh);
-        padding: 30px 0 15px 0;
+        height: 70px;
+        padding: 30px 0 20px 0;
     }
 
     .style-se-h1 {
         font-size: 5.4rem;
+    }
+
+    .sectionHeaderSeparator {
+        width: 180px;
+    }
+
+    .se-body {
+        width: 60%;
+        padding: 30px 0 50px 0;
+    }
+
+    .textDecorationLeft, .textDecorationRight {
+        width: 40px;
+        margin: 0 10px;
     }
 
     .style-se-h2 {
@@ -763,17 +836,9 @@ footer {
         font-size: 2rem;
     }
 
-    .se-body {
-        width: 50%;
-    }
-
     .style-se-p1 {
         font-size: 1.8rem;
         padding: 4px 0;
-    }
-
-    .style-se-p2 {
-        font-size: 1.8rem;
     }
 
     .style-se-p3 {
@@ -786,23 +851,54 @@ footer {
         padding-bottom: 3px;
     }
 
-
-    .lineSpace1 {
-        height: 14px;
+    .style-se-link {
+        font-size: 1.8rem;
     }
 
+    .lineSpace1 {
+        height: 12px;
+    }
+
+    .lineSpace2 {
+        height: 24px;
+    }
+
+    .lineSpace3 {
+        height: 36px;
+    }
+
+    .blackDivider {
+        width: 150px;
+    }
+
+    .greenDivider {
+        margin: 0 auto;
+        padding: 6px 0;
+        width: 18px;
+    }
+
+    .se-btn1 {
+        width: 170px;
+        height: 80px;
+        border-radius: 6px;
+    }
+
+    .se-btn1-text {
+        font-size: 2.6rem;
+        letter-spacing: 3px;
+    }
 
 
 }
 
 /* Laptop and landscape tablets*/
-@media (min-width: 900px) and (min-height: 600px) {
+@media (min-width: 900px) and (min-height: 600px) and (orientation: landscape) {
     
-    .ctn-h1-inner {
+    .headerTitleCtn {
         padding: 4px 0;
     }
 
-    header.shrunk .ctn-h1-inner {
+    header.shrunk .headerTitleCtn {
         padding: 4px 0;
     }
 
@@ -830,7 +926,7 @@ footer {
 
 
 
-    .imageWrap img {
+    .imageWrap .divider-h1 {
         width: 150px;
     }
 
@@ -863,3 +959,21 @@ footer {
 
 @media (min-width: 1400px) {
 }
+
+
+
+/* Animations */
+
+@keyframes letterHighlight {
+    0% {
+        color: inherit;
+    }
+    40% {
+        color:rgb(136, 116, 65);
+        text-shadow: 1px 1px 3px rgb(240, 235, 221);
+    }
+    100% {
+        color: inherit;
+    }
+} 
+    
