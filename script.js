@@ -1,74 +1,68 @@
-/*
-// navBar effects //
 
-  const navOptions = document.querySelectorAll(".navOption");
-
-  navOptions.forEach(opt => {
-    const text = opt.textContent.trim();
-    opt.textContent = "";
-
-    // Wrap each character in a span
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.style.setProperty("--delay", `${i * 0.04}s`);
-      opt.appendChild(span);
-    });
-  });
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".btn1");
-  const title = document.querySelectorAll(".header");
-
-  buttons.forEach(button => {
-    const text = button.textContent.trim();
-    button.textContent = ""; // clear original text
-
-    // Wrap each character in a span
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.style.setProperty("--delay", `${i * 0.04}s`);
-      button.appendChild(span);
-    });
-  });
-
-  title.forEach(t => {
-    const text = t.textContent.trim();
-    t.textContent = ""; // clear original text
-
-    // Wrap each character in a span
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.style.setProperty("--delay", `${i * 0.04}s`);
-      t.appendChild(span);
-    });
-  });
-});*/
 
 let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
 const h2 = document.querySelector(".style-h2");
-const hPic = document.querySelector(".divider-h1");
 
 const navMobile = document.getElementById("navMobile");
 const navDesktop = document.getElementById("navDesktop");
 
-const headerBottomMobile = document.getElementById("headerBottomMobile");
-const headerBottomDesktop = document.getElementById("headerBottomDesktop");
+const navMobileLinks = navMobile.querySelectorAll("a");
+const navDesktopLinks = navDesktop.querySelectorAll("a");
+
+const header = document.querySelector("header");
+const sections = document.querySelectorAll(".navColorChange");
 
 let menuOpen = false;
 
+window.addEventListener("load", () => {
+    const text1 = h1.textContent.trim()
+    const text2 = h2.textContent.trim()
+
+    h1.textContent = "";
+    h2.textContent = "";
+
+
+    text1.split("").forEach((char, i) => {
+    const span = document.createElement("span");
+    span.innerHTML = char === " " ? "&nbsp;" : char;
+    span.style.setProperty("--delay", `${i * 0.03}s`);
+    h1.appendChild(span);
+    });
+
+    text2.split("").forEach((char, i) => {
+    const span = document.createElement("span");
+    span.innerHTML = char === " " ? "&nbsp;" : char;
+    span.style.setProperty("--delay", `${i * 0.03}s`);
+    h2.appendChild(span);
+    });
+
+    navDesktopLinks.forEach(link => {
+      const text = link.textContent.trim()
+      link.textContent = "";
+      text.split("").forEach((char, i) => {
+        const span = document.createElement("span");
+        span.innerHTML = char === " " ? "&nbsp;" : char;
+        span.style.setProperty("--delay", `${i * 0.01}s`);
+        link.appendChild(span);
+    })})
+
+    setTimeout(() => {
+      h1.querySelectorAll("span").forEach(span => {
+        span.style.animationPlayState = "running";
+      });
+    }, 200);
+
+    setTimeout(() => {
+      h2.querySelectorAll("span").forEach(span => {
+        span.style.animationPlayState = "running";
+      });
+    }, 300);
+});
+
+
 
 // Header change of color //
-
-const header = document.querySelector("header");
-const menu = document.querySelector("nav");
-const sections = document.querySelectorAll(".navColorChange");
 
 const sectionColors = {
   mainPic: "rgb(236, 223, 195)",
@@ -122,12 +116,8 @@ window.addEventListener("scroll", () => {
 
 
 /* Toggle Menu */
-const btn = document.getElementById("menuBtn");
-
+const btn = document.getElementById("navBtn");
 const navDivider = document.getElementById("navSeparator");
-
-const testBtn = document.getElementById("test");
-const test2Btn = document.getElementById("test2");
 const dividerGreen = document.getElementById("dividerGreen")
 const dividerGold = document.getElementById("dividerGold")
 
@@ -136,42 +126,39 @@ btn.addEventListener("click", () => {
   toggleMenu();
 });
 
-let x = 0;
-
 
 
 
 
 /* Handle menu click */
 
-const links1 = navMobile.querySelectorAll("a");
-const links2 = navDesktop.querySelectorAll("a");
-
-
-links1.forEach(link => {
+navMobileLinks.forEach(link => {
   link.addEventListener("click", (e) => {
+    if (link.target == "_blank") {return}
+
     e.preventDefault();  // prevent default anchor behavior
     const target = document.querySelector(
       link.getAttribute("href")
     );
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: targetPosition - headerBottom.offsetTop + 2,
+      top: targetPosition - header.offsetHeight + 2,
       behavior: "smooth"
     });
     toggleMenu();   // close menu
   });
 });
 
-links2.forEach(link => {
+navDesktopLinks.forEach(link => {
   link.addEventListener("click", (e) => {
+    if (link.target == "_blank") {return}
     e.preventDefault();  // prevent default anchor behavior
     const target = document.querySelector(
       link.getAttribute("href")
     );
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: targetPosition - headerBottom.offsetTop + 2,
+      top: targetPosition - header.offsetHeight + 2,
       behavior: "smooth"
     });
     toggleMenu();   // close menu
@@ -235,10 +222,13 @@ function checkSectionChange() {
   }
 
   if (newSection !== currentSection) {
+
     currentSection = newSection;
     header.style.backgroundColor = sectionColors[currentSection.id];
     navMobile.style.backgroundColor = sectionColors[currentSection.id];
     navMobile.style.borderBottomColor = sectionBorderColors[currentSection.id];
+    navDesktop.style.borderBottomColor = sectionBorderColors[currentSection.id];
+
     btn.style.backgroundColor = sectionColors[currentSection.id];
     navDivider.src = sectionDividers[currentSection.id];
     dividerGreen.classList.toggle("active")
@@ -246,9 +236,6 @@ function checkSectionChange() {
 
   }
 }
-
-
-
 
 
 

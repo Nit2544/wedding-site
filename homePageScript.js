@@ -1,7 +1,11 @@
 const h1 = document.getElementById("hp-h1");
 
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
+
+    const ctn = document.querySelector(".ctn1");
+    ctn.classList.add("is-visible");
+
     const text = h1.textContent.trim()
     h1.textContent = "";
 
@@ -12,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     h1.appendChild(span);
     });
 
+    setTimeout(() => {
+      h1.querySelectorAll("span").forEach(span => {
+        span.style.animationPlayState = "running";
+      });
+    }, 200);
 });
 
 
