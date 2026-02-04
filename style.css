@@ -4,12 +4,12 @@ html, body {
 
 .html1 {
     font-size: 10px;
-    background-color: rgb(240, 235, 221);
+    background-color: #f8f5ed;
 }
 
 .html2 {
     font-size: 10px;
-    background-color: rgb(236, 223, 195);
+    background-color: #F0E6D2;
 }
 
 .app {
@@ -35,13 +35,13 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(240, 235, 221);
+    background-color: #f8f5ed;
 }
 
 .homePage .ctn1 {
     border: #A67C14 2px solid;    
     border-radius: 4px;
-    background-color: rgb(236, 223, 195);
+    background-color: #F0E6D2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,7 +130,7 @@ a:visited {
 header {
     position: sticky;
     top: 0;
-    background-color: rgb(236, 223, 195);
+    background-color: #F0E6D2;
     transition: 
         background-color 0.5s ease,
         width 0.5s ease,
@@ -154,8 +154,12 @@ header {
 
 .style-h1 {    
     font-family: 'Beau Rivage';
-    font-size: clamp(5.4rem,14vw,8vh);
+    font-size: clamp(4.4rem,11.75vw,5rem);
     transition: font-size 0.5s ease;
+}
+
+header.shrunk .style-h1 {    
+  font-size: clamp(3rem, 8vw, 4rem);
 }
 
 .style-h1 span, .style-h2 span {
@@ -165,22 +169,20 @@ header {
     animation-play-state: paused;
 }
 
-header.shrunk .style-h1 {    
-  font-size: clamp(3rem, 6vw, 5vh);
-}
+
 
 
 
 .style-h2 {
     font-family: 'Beau Rivage';
     margin-top: -0.5vh;
-    font-size: clamp(2.6rem,6vw, 34px);
+    font-size: clamp(2.6rem,6vw, 3.4rem);
     letter-spacing: 1.4px;
     transition: font-size 0.5s ease;
 }
 
 header.shrunk .style-h2 {
-    font-size: clamp(1.4rem,4vw,4vh);
+    font-size: clamp(1.4rem,4vw,1.7vh);
 }
 
 .ctn-h2 {
@@ -272,7 +274,8 @@ nav {
         height 0.5s ease,
         border-bottom 0.5s ease ;
     width: 100%;
-    background-color: rgb(236, 223, 195);
+    background-color: #F0E6D2;
+;
     border-bottom: rgb(166, 124, 20) solid 2px;
 }
 
@@ -349,12 +352,12 @@ nav {
 
 .se1 {
     border-top: rgb(166, 124, 20) solid 2px;
-    background-color: rgb(240, 235, 221);
+    background-color: #f8f5ed;
 }
 
 .se2 {
     border-top: #486946 solid 2px;
-    background-color: #eff7ed;
+    background-color: #F1F8F0;
 }
 
 .sectionHeader {
@@ -363,23 +366,23 @@ nav {
     height: 60px;
     width: fit-content;
     margin: 0 auto;
-    padding: 24px 0 16px 0;
+    padding: 24px 0 8px 0;
 }
 
 .style-se-h1 {
-    font-family: 'Beau Rivage';
-    font-size: 4.5rem;
+    font-family: "Quintessential", serif;
+    font-size: 2.4rem;
 }
 
 .sectionHeaderSeparator {
     margin: 0 auto;
-    width: 150px;
+    width: 120px;
 }
 
 .se-body {
     display: flex;
     flex-direction: column;
-    padding: 20px 0 40px 0;
+    padding: 30px 0 40px 0;
     width: 260px;
 }
 
@@ -406,21 +409,21 @@ nav {
 }
 
 .style-se-h2 {
-    font-family: "Nunito Sans", sans-serif;
+    font-family: "Quintessential", serif;
     font-size: 2.2rem;
     padding: 10px 0;
 }
 
 .style-se-h3 {
-    font-family: "Quintessential", serif;
-    font-size: 1.8rem;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.6rem;
     padding: 5px 0;
     margin: 0 auto;
 }
 
 .style-se-h4 {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0 auto;
     font-weight: bold;
 }
@@ -438,14 +441,15 @@ nav {
     color: #A67C14;
     font-weight: bold;
     letter-spacing: 1px;
+    padding-bottom: 2px;
     margin: 0 auto;
 }
 
 .style-se-p1 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.4rem;
-    padding: 2px 0;
     margin: 0 auto;
+    padding-bottom: 2px;
 }
 
 .style-se-p3 {
@@ -466,10 +470,10 @@ nav {
 .style-se-link {
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.4rem;
-    padding: 4px 0 2px 0;
     margin: 0 auto;
     color: rgb(85, 85, 85);
     font-style: italic;
+    padding-bottom: 2px;
 }
 
 .style-contact1 {
@@ -528,25 +532,30 @@ nav {
 }
 
 .se-btn1 {
-    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 60px;
+    width: 120px;
+    height: 40px;
     margin: 0 auto;
-    border: #A67C14 1px solid;
-    border-radius: 4px;
     cursor: pointer;
+    color: #A67C14;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.se-btn1:hover {
+        color: black;
+
 }
 
 .se-btn1-text {
-    font-family: "Nunito Sans", sans-serif;
-    color: rgb(240, 235, 221);
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    font-style: italic;
+    color: inherit;
 }
+
+
 
 
 
@@ -911,7 +920,7 @@ nav {
 }
 
 /* Laptop and landscape tablets*/
-@media (min-width: 900px) and (min-height: 600px) and (orientation: landscape) {
+@media (min-width: 1024px) {
     
     .headerTitleCtn {
         padding: 4px 0;
@@ -930,15 +939,15 @@ nav {
     }
 
     .style-h2 {
-        font-size: clamp(2.6rem,3vw,4.2rem);
+        font-size: clamp(2.6rem,2.6vw,3.2rem);
     }
 
     header.shrunk .style-h2 {
-        font-size: clamp(1.3rem,1.4vw,2.8rem);
+        font-size: clamp(1.3rem,1.4vw,2rem);
     }
 
     .ctn-h2 {
-        padding: 10px;
+        padding: 4px 0 8px 0;
     }
 
     header.shrunk .ctn-h2 {
@@ -946,11 +955,11 @@ nav {
     }
 
     .imageWrap img {
-        width: clamp(150px, 16.7vw, 200px);
+        width: clamp(140px, 14vw, 200px);
     }
 
     header.shrunk .imageWrap img {
-        width: clamp(80px, 16.7vw, 100px);
+        width: clamp(80px, 8vw, 100px);
     }
 
     /* Nav */

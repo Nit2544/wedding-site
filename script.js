@@ -1,5 +1,6 @@
 
-
+console.log(window.innerWidth);
+console.log(screen.width)
 let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
 const h2 = document.querySelector(".style-h2");
@@ -65,11 +66,11 @@ window.addEventListener("load", () => {
 // Header change of color //
 
 const sectionColors = {
-  mainPic: "rgb(236, 223, 195)",
-  travel: "#D1DFD0",
-  accommodation: "rgb(236, 223, 195)",
-  visit: "#D1DFD0",
-  contact: "rgb(236, 223, 195)",
+  mainPic: "#F0E6D2",
+  travel: "#deebdd",
+  accommodation: "#F0E6D2",
+  visit: "#deebdd",
+  contact: "#F0E6D2",
 };
 
 const sectionDividers = {
