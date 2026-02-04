@@ -17,6 +17,29 @@ const sections = document.querySelectorAll(".navColorChange");
 let menuOpen = false;
 
 window.addEventListener("load", () => {
+
+  const items = document.querySelectorAll(".fadein");
+  const btn = document.getElementById("navBtn");
+
+  if (window.scrollY == 0) {
+
+      items.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add("show");
+          if (index == 3) {btn.classList.add("show")}
+
+        }, index * 120); // 120ms between each element
+      });
+  } else {
+      document.body.classList.add("no-anim");
+      items.forEach((el) => {
+          el.classList.add("show");
+      });
+  }
+
+
+    
+
     const text1 = h1.textContent.trim()
     const text2 = h2.textContent.trim()
 
