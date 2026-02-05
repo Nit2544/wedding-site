@@ -3,8 +3,7 @@ const h1 = document.getElementById("hp-h1");
 
 window.addEventListener("load", () => {
 
-    const ctn = document.querySelector(".ctn1");
-    ctn.classList.add("is-visible");
+  document.body.classList.add("page-ready");
 
     const text = h1.textContent.trim()
     h1.textContent = "";
@@ -20,7 +19,7 @@ window.addEventListener("load", () => {
       h1.querySelectorAll("span").forEach(span => {
         span.style.animationPlayState = "running";
       });
-    }, 200);
+    }, 400);
 });
 
 

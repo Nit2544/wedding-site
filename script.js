@@ -1,5 +1,4 @@
-
-console.log(window.innerWidth);
+console.log(window.width)
 console.log(screen.width)
 let headerShrunk = false;
 const h1 = document.querySelector(".style-h1");
@@ -13,75 +12,57 @@ const navDesktopLinks = navDesktop.querySelectorAll("a");
 
 const header = document.querySelector("header");
 const sections = document.querySelectorAll(".navColorChange");
+let currentSection = sections[0]
+
 
 let menuOpen = false;
 
+
 window.addEventListener("load", () => {
 
-  const items = document.querySelectorAll(".fadein");
-  const btn = document.getElementById("navBtn");
+  document.body.classList.add("page-ready");
 
-  if (window.scrollY == 0) {
+  const text1 = h1.textContent.trim()
+  const text2 = h2.textContent.trim()
 
-      items.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add("show");
-          if (index == 3) {btn.classList.add("show")}
+  h1.textContent = "";
+  h2.textContent = "";
 
-        }, index * 120); // 120ms between each element
-      });
-  } else {
-      document.body.classList.add("no-anim");
-      items.forEach((el) => {
-          el.classList.add("show");
-      });
-  }
+  text1.split("").forEach((char, i) => {
+  const span = document.createElement("span");
+  span.innerHTML = char === " " ? "&nbsp;" : char;
+  span.style.setProperty("--delay", `${i * 0.03}s`);
+  h1.appendChild(span);
+  });
 
+  text2.split("").forEach((char, i) => {
+  const span = document.createElement("span");
+  span.innerHTML = char === " " ? "&nbsp;" : char;
+  span.style.setProperty("--delay", `${i * 0.03}s`);
+  h2.appendChild(span);
+  });
 
-    
+  navDesktopLinks.forEach(link => {
+    const text = link.textContent.trim()
+    link.textContent = "";
+    text.split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.innerHTML = char === " " ? "&nbsp;" : char;
+      span.style.setProperty("--delay", `${i * 0.01}s`);
+      link.appendChild(span);
+  })})
 
-    const text1 = h1.textContent.trim()
-    const text2 = h2.textContent.trim()
-
-    h1.textContent = "";
-    h2.textContent = "";
-
-
-    text1.split("").forEach((char, i) => {
-    const span = document.createElement("span");
-    span.innerHTML = char === " " ? "&nbsp;" : char;
-    span.style.setProperty("--delay", `${i * 0.03}s`);
-    h1.appendChild(span);
+  setTimeout(() => {
+    h1.querySelectorAll("span").forEach(span => {
+      span.style.animationPlayState = "running";
     });
+  }, 200);
 
-    text2.split("").forEach((char, i) => {
-    const span = document.createElement("span");
-    span.innerHTML = char === " " ? "&nbsp;" : char;
-    span.style.setProperty("--delay", `${i * 0.03}s`);
-    h2.appendChild(span);
+  setTimeout(() => {
+    h2.querySelectorAll("span").forEach(span => {
+      span.style.animationPlayState = "running";
     });
-
-    navDesktopLinks.forEach(link => {
-      const text = link.textContent.trim()
-      link.textContent = "";
-      text.split("").forEach((char, i) => {
-        const span = document.createElement("span");
-        span.innerHTML = char === " " ? "&nbsp;" : char;
-        span.style.setProperty("--delay", `${i * 0.01}s`);
-        link.appendChild(span);
-    })})
-
-    setTimeout(() => {
-      h1.querySelectorAll("span").forEach(span => {
-        span.style.animationPlayState = "running";
-      });
-    }, 200);
-
-    setTimeout(() => {
-      h2.querySelectorAll("span").forEach(span => {
-        span.style.animationPlayState = "running";
-      });
-    }, 300);
+  }, 300);
 });
 
 
@@ -116,12 +97,10 @@ const sectionBorderColors = {
 
 // Scroll event listener
 
-let currentSection = sections[0]
 
 window.addEventListener("scroll", () => {
 
   /* Shrink header when scrolling */
-  
   if (window.scrollY > 0) {
     if (!headerShrunk) {
       shrinkHeader();
@@ -133,7 +112,6 @@ window.addEventListener("scroll", () => {
   }
     
   /* Change header color based on section */
-
   checkSectionChange();
   
 });
@@ -199,8 +177,6 @@ function toggleMenu() {
     checkSectionChange();
   } else {
     navMobile.style.height = navMobile.scrollHeight + "px";
-
-
 
     menuOpen = true;
     checkSectionChange();

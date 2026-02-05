@@ -2,6 +2,15 @@ html, body {
   margin: 0;
 }
 
+body {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.page-ready {
+  opacity: 1;
+}
+
 .html1 {
     font-size: 10px;
     background-color: #f8f5ed;
@@ -29,20 +38,7 @@ a:visited {
     color: inherit;
 }
 
-.fadein {
-  opacity: 0;
-  transition:
-    opacity 0.6s cubic-bezier(.22,.61,.36,1)
-}
 
-/* When page is ready */
-.fadein.show {
-  opacity: 1;
-}
-
-.no-anim .fadein {
-  transition: none !important;
-}
 
 /* Home page */
 
@@ -64,16 +60,8 @@ a:visited {
     width: 90%;
     max-width: 400px;
     padding: 46px 0;
-
-    opacity: 0;
-    transform: translate(10px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.homePage .ctn1.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}   
 
 .homePage .header {
     display: flex;
@@ -148,7 +136,6 @@ header {
     background-color: #F0E6D2;
     transition: 
         background-color 0.5s ease,
-        width 0.5s ease,
         max-height 0.5s ease;
 }
 
@@ -177,17 +164,6 @@ header.shrunk .style-h1 {
   font-size: clamp(3rem, 8vw, 4rem);
 }
 
-.style-h1 span, .style-h2 span {
-    display: inline-block;
-    animation: letterHighlight 0.6s ease forwards;
-    animation-delay: var(--delay);
-    animation-play-state: paused;
-}
-
-
-
-
-
 .style-h2 {
     font-family: 'Beau Rivage';
     margin-top: -0.5vh;
@@ -200,21 +176,24 @@ header.shrunk .style-h2 {
     font-size: clamp(1.4rem,4vw,1.7vh);
 }
 
+.style-h1 span, .style-h2 span {
+    display: inline-block;
+    animation: letterHighlight 0.6s ease forwards;
+    animation-delay: var(--delay);
+    animation-play-state: paused;
+}
+
 .ctn-h {
     display: flex;
     align-items: center;
     position: relative;
     width: 100%;
-    padding: clamp(8px,2vw,1vh) 0;
+    padding: clamp(8px,2vw,10px) 0;
     transition: padding 0.5s ease;
-
 }
 
 header.shrunk .ctn-h {
-    display: flex;
-    width: 100%;
-    padding-top: clamp(4px,1vw,0.5vh);
-    padding-bottom: 0;
+    padding: clamp(4px,1vw,5px) 0;
 }
 
 .hpImageWrap, .imageWrap {
@@ -225,32 +204,24 @@ header.shrunk .ctn-h {
 
 .imageWrap img{
     grid-area: 1 / 1;
-    width: clamp(120px, 32vw, 30vh);
-    max-height: 7vh;
+    width: 120px;
     object-fit: contain;
     transition: 
         width 0.5s ease, 
-        max-height 0.5s ease,
         opacity 0.5s ease;
     opacity: 0;
 }
 
 header.shrunk .imageWrap img {
-    width: clamp(80px, 20vw, 20vh);
-    max-height: 5vh;
-    margin: 0 auto;
+    width: 80px;
 }
 
 .imageWrap img.active {
     opacity: 1;
 }
 
-#headerBottomMobile, #headerBottomDesktop {
-    width: 100%;
-}
-
-
 /* #endregion HEADER h */
+
 
 /* #region NAV */
 
@@ -266,11 +237,10 @@ nav {
 }
 
 .navBtn {
-    opacity: 0;
     transition:
-        opacity 0.6s ease,
         background-color 0.1s ease;
     position: sticky;
+    opacity: 0.8;
     font-size: 24px;
     padding: 2px 5px 3px 5px;
     height: fit-content;
@@ -283,9 +253,6 @@ nav {
     margin-top: 10px;
 }
 
-.navBtn.show {
-    opacity: 0.7;
-}
 
 .navBtn:active, .navBtn:focus-visible {
     background-color: rgb(205, 187, 152);
@@ -319,6 +286,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: rgb(166, 124, 20) solid 2px;
 }
 
 .navDesktopCtn {
@@ -339,8 +307,6 @@ nav {
     animation-delay: var(--delay);
 }
 
-
-
 .navSeparator {
     margin: 0 auto;
     width: 100px;
@@ -354,11 +320,10 @@ nav {
 /* #endregion NAV */
 
 .img1 {
-    height: 26vh;
+    height: 35vw;
     z-index: 1;
     background: url("pictures/header_picture2.jpeg") no-repeat center center;
     background-size: cover;
-    max-height: 400px;
 }
 
 /* #region SECTIONS */
@@ -392,7 +357,7 @@ nav {
     height: 60px;
     width: fit-content;
     margin: 0 auto;
-    padding: 24px 0 8px 0;
+    padding: 14px 0 8px 0;
 }
 
 .style-se-h1 {
@@ -471,12 +436,32 @@ nav {
     margin: 0 auto;
 }
 
+.style-se-intro {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 2rem;
+    color: black;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.style-se-intro2 {
+    font-family: "Quintessential", serif;
+    font-size: 2.6rem;
+    color: #A67C14;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
 .style-se-p1 {
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.4rem;
     margin: 0 auto;
     padding-bottom: 2px;
 }
+
 
 .style-se-p3 {
     font-family: "Nunito Sans", sans-serif;
@@ -501,6 +486,8 @@ nav {
     font-style: italic;
     padding-bottom: 2px;
 }
+
+
 
 .style-contact1 {
     font-family: "Nunito Sans", sans-serif;
@@ -757,23 +744,27 @@ nav {
     }
 
     .style-h1 {
-        font-size: clamp(7rem,8vw,9rem);
+        font-size: clamp(6rem,7.8vw,8rem);
     }
 
     header.shrunk .style-h1 {
-        font-size: clamp(3.5rem,4.6vw,5rem);
+        font-size: clamp(4rem,5vw,6rem);
     }
 
     .style-h2 {
-        font-size: clamp(4rem,5.2vw,6rem);
+        font-size: clamp(3.5rem,4.5vw,4.6rem);
     }
 
     header.shrunk .style-h2 {
-        font-size: clamp(2rem,2.6vw,6rem);
+        font-size: clamp(2.2rem,2.85vw,2.9rem);
     }
 
     .ctn-h {
-        padding: clamp(10px,1vw,10vh) 0;
+        padding: clamp(11px,1.43vw,15px) 0;
+    }
+
+    header.shrunk .ctn-h {
+        padding: clamp(5.5px,0.7vw,7.5px) 0;
     }
 
     .imageWrap img {
@@ -781,7 +772,7 @@ nav {
     }
 
     header.shrunk .imageWrap img {
-        width: clamp(100px, 14vw, 130px);
+        width: clamp(130px, 17vw, 170px);
     }
 
     /* Nav */
@@ -796,7 +787,7 @@ nav {
 
     .navDesktop {
         display: flex;
-        border-bottom: rgb(166, 124, 20) solid clamp(4px,0.52vw,1vh);
+        border-bottom-width: 5px;
     }
 
     .navDesktopCtn {
@@ -804,31 +795,41 @@ nav {
     }
 
     .navOption {
-        font-size: clamp(1.6rem,1.9vw,10vh);
+        font-size: clamp(1.6rem,2.1vw,2rem);
     }
 
     .navOptionSeparator {
-        font-size: clamp(1.2rem,1.5vw,20px);
+        font-size: clamp(1.2rem,1.5vw,1.5rem);
     }
 
     .img1 {
-
+        height: 30vw;
     }
 
 
     /* Sections */
 
     .se1, .se2 {
-        border-top-width: clamp(4px,0.52vw,5px);
+        border-top-width: 5px;
     }
 
     .sectionHeader {
         height: 70px;
-        padding: 30px 0 20px 0;
+        padding: 30px 0 24px 0;
+    }
+
+    .style-se-intro {
+        font-size: 2.6rem;
+        padding-bottom: 18px;
+    }
+
+    .style-se-intro2 {
+        font-size: 3rem;
+        padding-bottom: 18px;
     }
 
     .style-se-h1 {
-        font-size: 5.4rem;
+        font-size: 4rem;
     }
 
     .sectionHeaderSeparator {
@@ -836,24 +837,24 @@ nav {
     }
 
     .se-body {
-        width: 60%;
+        width: 55%;
         max-width: 500px;
-        padding: 30px 0 80px 0;
+        padding: 40px 0 80px 0;
     }
 
     .textDecorationLeft, .textDecorationRight {
-        width: 40px;
+        width: 50px;
         margin: 0 10px;
     }
 
     .style-se-h2 {
         padding: 12px 0;
-        font-size: 2.6rem;
+        font-size: 3rem;
     }
 
     .style-se-h3 {
         font-size: 2.4rem;
-        padding: 6px 0;
+        padding: 10px 0;
     }
 
     .style-se-h4 {
@@ -865,13 +866,13 @@ nav {
     }
 
     .style-se-h6 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
         letter-spacing: 2px;
         margin: 0 auto;
     }
 
     .style-se-p1 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
         padding: 4px 0;
     }
 
@@ -923,7 +924,7 @@ nav {
     }
 
     .blackStar {
-        padding: 10px 0;
+        padding: 14px 0;
         width: 14px;
     }
 
@@ -946,7 +947,7 @@ nav {
 }
 
 /* Laptop and landscape tablets*/
-@media (min-width: 1024px) {
+@media (min-width: 1030px) {
     
     .headerTitleCtn {
         padding: 4px 0;
@@ -1017,16 +1018,20 @@ nav {
 
     .sectionHeader {
         height: 60px;
-        padding: 30px 0 20px 0;
+        padding: 26px 0 14px 0;
     }
 
+
+
     .style-se-h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .sectionHeaderSeparator {
-        width: 180px;
+        width: 150px;
     }
+
+
 
     .se-body {
         width: 60%;
@@ -1038,23 +1043,31 @@ nav {
         width: 40px;
         margin: 0 10px;
     }
+    .style-se-intro {
+        font-size: 1.6rem;
+        padding-bottom: 20px;
+    }
 
+    .style-se-intro2 {
+        font-size: 2.4rem;
+        padding-bottom: 20px;
+    }
     .style-se-h2 {
-        padding: 8px 0;
-        font-size: 2rem;
+        padding: 8px 0 16px 0;
+        font-size: 2.6rem;
     }
 
     .style-se-h3 {
-        font-size: 1.8rem;
-        padding: 6px 0;
+        font-size: 2rem;
+        padding: 8px 0;
     }
 
     .style-se-h4 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .style-se-h5 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .style-se-h6 {
@@ -1064,22 +1077,22 @@ nav {
     }
 
     .style-se-p1 {
-        font-size: 1.2rem;
-        padding: 2px 0;
+        font-size: 1.6rem;
+        padding: 4px 0;
     }
 
     .style-se-p3 {
-        font-size: 1.2rem;
-        padding: 3px 0 2px 0;
+        font-size: 1.4rem;
+        padding: 4px 0 3px 0;
     }
 
     .style-se-p4 {
-        font-size: 1.2rem;
-        padding-bottom: 3px;
+        font-size: 1.4rem;
+        padding-bottom: 4px;
     }
 
     .style-se-link {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         padding: 5px 0 3px 0;
     }
 
@@ -1095,15 +1108,15 @@ nav {
     }
 
     .lineSpace1 {
-        height: 10px;
+        height: 12px;
     }
 
     .lineSpace2 {
-        height: 20px;
+        height: 24px;
     }
 
     .lineSpace3 {
-        height: 30px;
+        height: 36px;
     }
 
     .blackDivider {
@@ -1116,7 +1129,7 @@ nav {
     }
 
     .blackStar {
-        padding: 10px 0;
+        padding: 16px 0;
         width: 14px;
     }
 
@@ -1125,13 +1138,12 @@ nav {
     }
 
     .se-btn1 {
-        width: 100px;
         height: 40px;
         border-radius: 2px;
     }
 
     .se-btn1-text {
-        font-size: 1.6rem;
+        font-size: 3rem;
         letter-spacing: 2px;
     }
 
