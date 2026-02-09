@@ -38,8 +38,58 @@ a:visited {
     color: inherit;
 }
 
+.slider {
+    width: 90%;
+    aspect-ratio: 5 / 2; 
+    /* width : height */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides a {
+    flex: 0 0 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 8px; }
+.next { right: 8px; }
+
+.prev, .next {
+    z-index: 2;
+
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.65);
+}
 /* Home page */
 
 .homePage {
@@ -137,13 +187,13 @@ header {
     transition: 
         background-color 0.5s ease,
         max-height 0.5s ease;
+    z-index: 20;
 }
 
 .headerCtn {
     position: relative;
     display: flex;
     flex-direction: column;
-    z-index: 20;
 }
 
 .headerTitleCtn {

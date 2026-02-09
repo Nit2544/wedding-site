@@ -239,4 +239,19 @@ function checkSectionChange() {
 
 
 
+document.querySelectorAll('.slider').forEach(slider => {
+  const slides = slider.querySelector('.slides');
+  const total = slides.children.length;
+  let index = 0;
+
+  slider.querySelector('.next').onclick = () => {
+    index = (index + 1) % total;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  };
+
+  slider.querySelector('.prev').onclick = () => {
+    index = (index - 1 + total) % total;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  };
+});
 

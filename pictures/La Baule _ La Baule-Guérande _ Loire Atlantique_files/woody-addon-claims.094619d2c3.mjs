@@ -1,0 +1,1 @@
+let e=document.querySelectorAll(".woody-component-campaigns-block");e.length>0&&import("woody_addon_campaigns_blocks").then(o=>{o.init(e)});const c=new URL(document.location.toString()).searchParams;if(!c.has("roadbook")){let o=document.querySelector(".claims-blocks-wrapper");o!==null&&import("woody_addon_claims_blocks").then(t=>{t.init(o)})}

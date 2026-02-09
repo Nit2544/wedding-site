@@ -1,0 +1,1 @@
+(function(e){const t=e.querySelectorAll(".woody-component-tides-timer");t?.length>0&&import("woody_addon_tides_timer").then(o=>{t.forEach(i=>{o.init(i)})})})(document);
