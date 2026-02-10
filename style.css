@@ -597,7 +597,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
+    min-width: 120px;
     height: 40px;
     margin: 0 auto;
     cursor: pointer;
